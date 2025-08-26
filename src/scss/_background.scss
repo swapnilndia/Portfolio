@@ -1,0 +1,73 @@
+@import 'tokens';
+@import 'mixins';
+
+// Calm animated gradient (root-level)
+%calm-background {
+  background: linear-gradient(
+    120deg,
+    color(surface-dark-1),
+    color(blue-600),
+    color(pink-600),
+    color(surface-dark-2)
+  );
+  background-size: 600% 600%;
+  animation: gradientShift 50s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(10deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+}
+
+// Soft blobs layer (optional)
+.blobs {
+  position: fixed;
+  inset: -12vmax;
+  z-index: z(background);
+  pointer-events: none;
+  filter: blur(40px) opacity(0.25);
+  .blob {
+    position: absolute;
+    width: 40vmax;
+    height: 40vmax;
+    border-radius: 50%;
+    animation: float 40s ease-in-out infinite;
+  }
+  .one {
+    left: 2%;
+    top: 8%;
+    background: color(blue-400);
+  }
+  .two {
+    right: -4%;
+    top: -2%;
+    animation-delay: -15s;
+    background: color(pink-400);
+  }
+  .thr {
+    left: 35%;
+    bottom: -8%;
+    animation-delay: -25s;
+    background: color(green-400);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(2vmax, -3vmax) scale(1.05);
+  }
+}

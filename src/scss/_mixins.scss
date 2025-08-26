@@ -1,0 +1,212 @@
+@use 'sass:math';
+@import 'tokens';
+
+// --------- Media query helper ----------
+@mixin up($bp) {
+  @media (min-width: bp($bp)) {
+    @content;
+  }
+}
+@mixin down($bp) {
+  @media (max-width: bp($bp)) {
+    @content;
+  }
+}
+
+// --------- Fluid clamp helper ----------
+/*
+  fluid( minSize, maxSize, minViewport, maxViewport )
+  Example: font-size: fluid(14px, 18px, 360px, 1280px);
+*/
+@function fluid($min, $max, $minVw, $maxVw) {
+  $slope: (strip-unit($max) - strip-unit($min)) /
+    (strip-unit($maxVw) - strip-unit($minVw)) * 100;
+  $intercept: strip-unit($min) - ($slope * strip-unit($minVw) / 100);
+  @return clamp(#{$min}, calc(#{$intercept}px + #{$slope}vw), #{$max});
+}
+
+@function strip-unit($num) {
+  @if type-of($num) == 'number' and not unitless($num) {
+    @return $num / ($num * 0 + 1);
+  }
+  @return $num;
+}
+
+// --------- Backdrop support gate ----------
+@mixin supports-backdrop {
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    @content;
+  }
+}
+
+// --------- Glass surface ----------
+/*
+  Options allow local tuning without changing tokens.
+*/
+@mixin glass(
+  $bgTop: rgba(255, 255, 255, 0.16),
+  $bgBottom: rgba(255, 255, 255, 0.06),
+  $border: rgba(255, 255, 255, 0.28),
+  $blur-amount: blur(glass)
+) {
+  background: linear-gradient(180deg, $bgTop, $bgBottom);
+  border: 1px solid $border;
+  border-right-color: rgba(255, 255, 255, 0.18);
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+  border-radius: radius(xl);
+  box-shadow:
+    0 0.5px 0 rgba(255, 255, 255, 0.6) inset,
+    0 0 0 1px rgba(8, 12, 20, 0.12) inset,
+    shadow(card);
+  position: relative;
+  overflow: hidden;
+
+  @include supports-backdrop {
+    backdrop-filter: saturate(160%) blur(blur($blur-amount));
+    -webkit-backdrop-filter: saturate(160%) blur(blur($blur-amount));
+  }
+
+  // specular streak
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -40% -40% auto -40%;
+    height: 60%;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0) 60%
+    );
+    transform: rotate(-6deg);
+    pointer-events: none;
+  }
+}
+
+// --------- “Ice-embedded” element ----------
+@mixin ice(
+  $border: rgba(255, 255, 255, 0.35),
+  $bgTop: rgba(255, 255, 255, 0.22),
+  $bgBottom: rgba(255, 255, 255, 0.08),
+  $blur-amount: blur(ice)
+) {
+  border: 1px solid $border;
+  background: linear-gradient(180deg, $bgTop, $bgBottom);
+  border-radius: radius(md);
+
+  @include supports-backdrop {
+    backdrop-filter: blur(blur($blur-amount)) saturate(140%);
+    -webkit-backdrop-filter: blur(blur($blur-amount)) saturate(140%);
+  }
+
+  box-shadow:
+    inset 2px 2px 6px rgba(255, 255, 255, 0.35),
+    inset -6px -8px 18px rgba(0, 0, 0, 0.28),
+    shadow(button);
+}
+
+// --------- Icon button ----------
+@mixin icon-button($size: 40px) {
+  width: $size;
+  height: $size;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: radius(md);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+  color: color(text-on-glass);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+  }
+  svg {
+    width: math.div($size, 2);
+    height: math.div($size, 2);
+    stroke: rgba(255, 255, 255, 0.92);
+  }
+}
+
+// --------- Text on glass ----------
+@mixin on-glass {
+  color: color(text-on-glass);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+// --------- Button styles ----------
+@mixin btn-primary {
+  @include on-glass;
+  color: color(text-ink); // readable over light gradient
+  background: linear-gradient(180deg, #ffffff, #e5f0ff);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: radius(md);
+  padding: 10px 16px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow: shadow(button);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@mixin btn-ghost {
+  @include on-glass;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.06)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: radius(md);
+  padding: 10px 16px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  @include supports-backdrop {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  transition: transform 0.15s ease;
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+// --------- Chip ----------
+@mixin chip {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: radius(pill);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.08)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  @include supports-backdrop {
+    backdrop-filter: blur(blur(chip));
+    -webkit-backdrop-filter: blur(blur(chip));
+  }
+  box-shadow:
+    inset 1px 1px 3px rgba(255, 255, 255, 0.35),
+    inset -3px -5px 10px rgba(0, 0, 0, 0.25),
+    0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+// --------- Card skeleton ----------
+@mixin card($pad: 14px) {
+  @include glass;
+  padding: $pad;
+}
+
+// --------- Utility radius helpers ----------
+@mixin round($key: md) {
+  border-radius: radius($key);
+}
+@mixin circle {
+  border-radius: radius(circle);
+}
