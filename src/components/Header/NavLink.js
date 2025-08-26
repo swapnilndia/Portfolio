@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
 
 const NavLink = ({
   href,
@@ -28,17 +31,27 @@ const NavLink = ({
     }
   };
 
-  const linkProps = {
-    href,
-    onClick: handleClick,
-    className: `${mobile ? 'mobile-nav-link' : 'nav-link'} ${active ? (mobile ? 'mobile-nav-link--active' : 'nav-link--active') : ''}`,
-    ...(external && {
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    }),
-  };
+  const className = `${mobile ? 'mobile-nav-link' : 'nav-link'} ${active ? (mobile ? 'mobile-nav-link--active' : 'nav-link--active') : ''}`;
 
-  return <a {...linkProps}>{children}</a>;
+  if (external) {
+    return (
+      <a
+        href={href}
+        className={className}
+        onClick={handleClick}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={className} onClick={handleClick}>
+      {children}
+    </Link>
+  );
 };
 
 export default NavLink;

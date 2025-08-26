@@ -2,34 +2,13 @@ export default function Projects() {
   return (
     <>
       {/* Animated background blobs */}
-      <div className="blobs">
+      <div className="blobs blobs--projects">
         <div className="blob one"></div>
         <div className="blob two"></div>
         <div className="blob thr"></div>
       </div>
 
       <div className="wrap">
-        {/* Navigation */}
-        <nav className="nav">
-          <div className="brand">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            <strong>Swapnil Katiyar</strong>
-          </div>
-          <div className="spacer"></div>
-          <button className="icon-btn">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-        </nav>
-
         {/* Projects Header */}
         <section
           className="hero"
@@ -119,33 +98,11 @@ export default function Projects() {
           </div>
         </section>
 
-        {/* E-commerce Project */}
+        {/* E-commerce Project - Reverse Layout */}
         <section
-          className="hero"
+          className="hero hero--reverse"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
         >
-          <div>
-            <h2
-              className="title"
-              style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
-            >
-              E-commerce Platform
-            </h2>
-            <p className="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante.
-            </p>
-
-            <div className="chips">
-              <span className="chip">React</span>
-              <span className="chip">Node.js</span>
-              <span className="chip">Stripe</span>
-              <span className="chip">MongoDB</span>
-            </div>
-          </div>
-
           <div className="stack">
             <div className="product">
               <div
@@ -194,9 +151,30 @@ export default function Projects() {
               </button>
             </div>
           </div>
+
+          <div>
+            <h2
+              className="title"
+              style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
+            >
+              E-commerce Platform
+            </h2>
+            <p className="subtitle">
+              Complete e-commerce solution with payment integration, inventory
+              management, and analytics dashboard. Built with modern
+              technologies for scalability and performance.
+            </p>
+
+            <div className="chips">
+              <span className="chip">React</span>
+              <span className="chip">Node.js</span>
+              <span className="chip">Stripe</span>
+              <span className="chip">MongoDB</span>
+            </div>
+          </div>
         </section>
 
-        {/* Mobile App Project */}
+        {/* Mobile App Project - Back to Default Layout */}
         <section
           className="hero"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}

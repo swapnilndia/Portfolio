@@ -2,62 +2,13 @@ export default function Home() {
   return (
     <>
       {/* Animated background blobs */}
-      <div className="blobs">
+      <div className="blobs blobs--home">
         <div className="blob one"></div>
         <div className="blob two"></div>
         <div className="blob thr"></div>
       </div>
 
       <div className="wrap">
-        {/* Navigation */}
-        <nav className="nav">
-          <div className="brand">
-            <a
-              href="/"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                textDecoration: 'none',
-                color: 'inherit',
-              }}
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-              <strong>Swapnil Katiyar</strong>
-            </a>
-          </div>
-          <div className="spacer"></div>
-          <div
-            className="nav-links"
-            style={{ display: 'flex', gap: '24px', alignItems: 'center' }}
-          >
-            <a href="/about" className="nav-link">
-              About
-            </a>
-            <a href="/projects" className="nav-link">
-              Projects
-            </a>
-            <a href="/experience" className="nav-link">
-              Experience
-            </a>
-            <a href="/contact" className="nav-link">
-              Contact
-            </a>
-          </div>
-          <button className="icon-btn">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-        </nav>
-
         {/* Hero Section */}
         <section className="hero">
           <div>
@@ -126,6 +77,86 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Third Section - Back to Left Aligned */}
+        <section
+          className="hero"
+          style={{ marginTop: 'clamp(24px, 4vw, 48px)' }}
+        >
+          <div>
+            <h2
+              className="title"
+              style={{ fontSize: 'clamp(20px, 3vw, 32px)' }}
+            >
+              My Approach
+            </h2>
+            <p className="subtitle">
+              I believe in creating digital experiences that are not only
+              beautiful but also functional, accessible, and performant. Every
+              project is an opportunity to solve real problems.
+            </p>
+
+            <div className="chips">
+              <span className="chip">User-Centered</span>
+              <span className="chip">Performance First</span>
+              <span className="chip">Clean Code</span>
+              <span className="chip">Accessibility</span>
+            </div>
+          </div>
+
+          <div className="stack">
+            {/* Philosophy Card */}
+            <div className="product">
+              <div
+                className="mock-img"
+                style={{
+                  background: `
+                  radial-gradient(120% 120% at 30% 80%, rgba(255,255,255,0.9), rgba(255,255,255,0.08) 45%, rgba(255,255,255,0) 60%),
+                  conic-gradient(from 270deg at 60% 40%, #f472b6, #34d399, #60a5fa, #f472b6)
+                `,
+                }}
+              ></div>
+              <div className="meta">
+                <h3>Design Philosophy</h3>
+                <p>
+                  Form follows function. Beautiful interfaces that solve real
+                  problems and create delightful user experiences.
+                </p>
+                <div className="price">UX • Performance • Accessibility</div>
+                <div className="buy-row">
+                  <a href="/about" className="btn primary">
+                    Learn More
+                  </a>
+                  <button className="btn ghost">My Process</button>
+                </div>
+              </div>
+            </div>
+
+            {/* Tools Component */}
+            <div className="player">
+              <div
+                className="cover"
+                style={{
+                  background: 'linear-gradient(135deg, #f472b6, #db2777)',
+                }}
+              ></div>
+              <div className="track">
+                <div className="name">Favorite Tools</div>
+                <div className="artist">VS Code • Figma • Git</div>
+              </div>
+              <button className="play">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
         {/* Skills Grid */}
         <section className="icon-row">
           <div className="icon-card">
@@ -179,31 +210,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Additional Projects */}
+        {/* Additional Projects - Reversed Layout */}
         <section
-          className="hero"
+          className="hero hero--reverse"
           style={{ marginTop: 'clamp(24px, 4vw, 48px)' }}
         >
-          <div>
-            <h2
-              className="title"
-              style={{ fontSize: 'clamp(20px, 3vw, 32px)' }}
-            >
-              Recent Projects
-            </h2>
-            <p className="subtitle">
-              A selection of my latest work showcasing different technologies
-              and design approaches.
-            </p>
-
-            <div className="chips">
-              <span className="chip">E-commerce</span>
-              <span className="chip">SaaS Platform</span>
-              <span className="chip">Mobile App</span>
-              <span className="chip">API Design</span>
-            </div>
-          </div>
-
           <div className="stack">
             {/* Second Project */}
             <div className="product">
@@ -254,6 +265,26 @@ export default function Home() {
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                 </svg>
               </button>
+            </div>
+          </div>
+
+          <div>
+            <h2
+              className="title"
+              style={{ fontSize: 'clamp(20px, 3vw, 32px)' }}
+            >
+              Recent Projects
+            </h2>
+            <p className="subtitle">
+              A selection of my latest work showcasing different technologies
+              and design approaches.
+            </p>
+
+            <div className="chips">
+              <span className="chip">E-commerce</span>
+              <span className="chip">SaaS Platform</span>
+              <span className="chip">Mobile App</span>
+              <span className="chip">API Design</span>
             </div>
           </div>
         </section>

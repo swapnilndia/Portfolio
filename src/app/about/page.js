@@ -2,66 +2,33 @@ export default function About() {
   return (
     <>
       {/* Animated background blobs */}
-      <div className="blobs">
+      <div className="blobs blobs--about">
         <div className="blob one"></div>
         <div className="blob two"></div>
         <div className="blob thr"></div>
       </div>
 
       <div className="wrap">
-        {/* Navigation */}
-        <nav className="nav">
-          <div className="brand">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            <strong>Swapnil Katiyar</strong>
-          </div>
-          <div className="spacer"></div>
-          <button className="icon-btn">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-        </nav>
-
-        {/* About Section */}
+        {/* About Section - Left aligned (default) */}
         <section
           className="hero"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
         >
           <div>
-            <h1
-              className="title"
-              style={{ fontSize: 'clamp(28px, 5vw, 42px)' }}
-            >
-              About Me
-            </h1>
+            <h1 className="title">About Me</h1>
             <p className="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              I'm a passionate full-stack developer with over 5 years of
+              experience creating beautiful, functional web applications. I
+              specialize in modern JavaScript frameworks and have a keen eye for
+              design and user experience.
             </p>
-            <p
-              className="subtitle"
-              style={{ marginTop: 'clamp(16px, 2vw, 24px)' }}
-            >
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
+            <p className="subtitle">
+              My journey in web development started with a curiosity about how
+              websites work, and it has evolved into a deep passion for creating
+              digital experiences that make a difference.
             </p>
 
-            <div
-              className="cta-row"
-              style={{ marginTop: 'clamp(20px, 3vw, 32px)' }}
-            >
+            <div className="cta-row">
               <button className="btn primary">Download Resume</button>
               <button className="btn ghost">Contact Me</button>
             </div>
@@ -127,41 +94,11 @@ export default function About() {
           </div>
         </section>
 
-        {/* Personal Story */}
+        {/* My Journey - Right aligned (reverse) */}
         <section
-          className="hero"
-          style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
+          className="hero hero--reverse"
+          style={{ marginTop: 'clamp(24px, 4vw, 48px)' }}
         >
-          <div>
-            <h2
-              className="title"
-              style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
-            >
-              My Journey
-            </h2>
-            <p className="subtitle">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo.
-            </p>
-            <p
-              className="subtitle"
-              style={{ marginTop: 'clamp(16px, 2vw, 24px)' }}
-            >
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-              aut fugit, sed quia consequuntur magni dolores eos qui ratione
-              voluptatem sequi nesciunt.
-            </p>
-
-            <div className="chips">
-              <span className="chip">Started in 2019</span>
-              <span className="chip">Self-taught</span>
-              <span className="chip">Continuous Learning</span>
-              <span className="chip">Open Source</span>
-            </div>
-          </div>
-
           <div className="stack">
             {/* Philosophy */}
             <div className="product">
@@ -177,8 +114,8 @@ export default function About() {
               <div className="meta">
                 <h3>My Philosophy</h3>
                 <p>
-                  I believe in writing clean, maintainable code and creating
-                  user experiences that delight and inspire.
+                  Quality over quantity. Clean, maintainable code that solves
+                  real problems and creates delightful user experiences.
                 </p>
                 <div className="price">Quality • Innovation • Impact</div>
                 <div className="buy-row">
@@ -211,6 +148,117 @@ export default function About() {
                 >
                   <circle cx="12" cy="12" r="3" />
                   <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <h2
+              className="title"
+              style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
+            >
+              My Journey
+            </h2>
+            <p className="subtitle">
+              My development journey started in 2019 when I discovered the power
+              of code to solve real-world problems. What began as curiosity
+              quickly became a passion for creating digital experiences that
+              matter.
+            </p>
+            <p className="subtitle">
+              I believe in continuous learning and staying up-to-date with the
+              latest technologies while maintaining a strong foundation in core
+              principles.
+            </p>
+
+            <div className="chips">
+              <span className="chip">Started in 2019</span>
+              <span className="chip">Self-taught</span>
+              <span className="chip">Continuous Learning</span>
+              <span className="chip">Open Source</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Skills & Technologies - Left aligned */}
+        <section
+          className="hero"
+          style={{ marginTop: 'clamp(24px, 4vw, 48px)' }}
+        >
+          <div>
+            <h2
+              className="title"
+              style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
+            >
+              Skills & Technologies
+            </h2>
+            <p className="subtitle">
+              I work with a diverse range of technologies to build scalable,
+              performant applications. My expertise spans both frontend and
+              backend development.
+            </p>
+
+            <div className="cta-row">
+              <button className="btn primary">View Portfolio</button>
+              <button className="btn ghost">Download CV</button>
+            </div>
+
+            <div className="chips">
+              <span className="chip">React & Next.js</span>
+              <span className="chip">Node.js</span>
+              <span className="chip">TypeScript</span>
+              <span className="chip">MongoDB</span>
+            </div>
+          </div>
+
+          <div className="stack">
+            {/* Tech Stack Card */}
+            <div className="product">
+              <div
+                className="mock-img"
+                style={{
+                  background: `
+                  radial-gradient(120% 120% at 80% 20%, rgba(255,255,255,0.9), rgba(255,255,255,0.08) 45%, rgba(255,255,255,0) 60%),
+                  conic-gradient(from 45deg at 40% 40%, #34d399, #60a5fa, #f472b6, #34d399)
+                `,
+                }}
+              ></div>
+              <div className="meta">
+                <h3>Tech Stack</h3>
+                <p>
+                  Modern technologies and tools I use to build scalable,
+                  performant applications.
+                </p>
+                <div className="price">Frontend • Backend • DevOps</div>
+                <div className="buy-row">
+                  <button className="btn primary">View Projects</button>
+                  <button className="btn ghost">Tech Details</button>
+                </div>
+              </div>
+            </div>
+
+            {/* Learning Status */}
+            <div className="player">
+              <div
+                className="cover"
+                style={{
+                  background: 'linear-gradient(135deg, #34d399, #059669)',
+                }}
+              ></div>
+              <div className="track">
+                <div className="name">Always Learning</div>
+                <div className="artist">New Technologies • Best Practices</div>
+              </div>
+              <button className="play">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <polyline points="16,18 22,12 16,6" />
+                  <polyline points="8,6 2,12 8,18" />
                 </svg>
               </button>
             </div>

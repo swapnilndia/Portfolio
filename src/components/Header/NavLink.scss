@@ -1,0 +1,88 @@
+@import '../../scss/tokens';
+@import '../../scss/mixins';
+
+// ---------- NAV LINKS ----------
+.nav-link {
+  @include ice;
+  @include on-glass;
+  display: inline-flex;
+  align-items: center;
+  padding: space(3) space(5);
+  border-radius: radius(md);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 3px 3px 8px rgba(255, 255, 255, 0.4),
+      inset -8px -10px 20px rgba(0, 0, 0, 0.35),
+      0 16px 34px rgba(0, 0, 0, 0.45);
+  }
+
+  &--active {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28),
+      rgba(255, 255, 255, 0.12)
+    );
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: radius(circle);
+      background: color(blue-400);
+      box-shadow: 0 0 8px color(blue-400);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid color(blue-400);
+    outline-offset: 2px;
+  }
+}
+
+// ---------- MOBILE NAV LINKS ----------
+.mobile-nav-link {
+  @include ice;
+  @include on-glass;
+  display: block;
+  padding: space(4) space(5);
+  border-radius: radius(md);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 3px 3px 8px rgba(255, 255, 255, 0.4),
+      inset -8px -10px 20px rgba(0, 0, 0, 0.35),
+      0 16px 34px rgba(0, 0, 0, 0.45);
+  }
+
+  &--active {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28),
+      rgba(255, 255, 255, 0.12)
+    );
+  }
+
+  &:focus {
+    outline: 2px solid color(blue-400);
+    outline-offset: 2px;
+  }
+}

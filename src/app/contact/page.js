@@ -2,34 +2,13 @@ export default function Contact() {
   return (
     <>
       {/* Animated background blobs */}
-      <div className="blobs">
+      <div className="blobs blobs--contact">
         <div className="blob one"></div>
         <div className="blob two"></div>
         <div className="blob thr"></div>
       </div>
 
       <div className="wrap">
-        {/* Navigation */}
-        <nav className="nav">
-          <div className="brand">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            <strong>Swapnil Katiyar</strong>
-          </div>
-          <div className="spacer"></div>
-          <button className="icon-btn">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-        </nav>
-
         {/* Contact Header */}
         <section
           className="hero"
@@ -117,33 +96,11 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Contact Methods */}
+        {/* Contact Methods - Reverse Layout */}
         <section
-          className="hero"
+          className="hero hero--reverse"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
         >
-          <div>
-            <h2
-              className="title"
-              style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
-            >
-              How to Reach Me
-            </h2>
-            <p className="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-
-            <div className="chips">
-              <span className="chip">Email Preferred</span>
-              <span className="chip">Quick Response</span>
-              <span className="chip">Professional</span>
-              <span className="chip">Friendly</span>
-            </div>
-          </div>
-
           <div className="stack">
             <div className="product">
               <div
@@ -191,6 +148,27 @@ export default function Contact() {
                   <polyline points="12,6 12,12 16,14" />
                 </svg>
               </button>
+            </div>
+          </div>
+
+          <div>
+            <h2
+              className="title"
+              style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
+            >
+              How to Reach Me
+            </h2>
+            <p className="subtitle">
+              I prefer email for initial contact, but I'm also available for
+              phone calls and video meetings. I typically respond within 4 hours
+              during business days.
+            </p>
+
+            <div className="chips">
+              <span className="chip">Email Preferred</span>
+              <span className="chip">Quick Response</span>
+              <span className="chip">Professional</span>
+              <span className="chip">Friendly</span>
             </div>
           </div>
         </section>

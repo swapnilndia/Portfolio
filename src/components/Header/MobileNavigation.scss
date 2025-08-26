@@ -1,0 +1,87 @@
+@import '../../scss/tokens';
+@import '../../scss/mixins';
+
+// ---------- MOBILE NAVIGATION ----------
+.mobile-navigation {
+  @include up(md) {
+    display: none;
+  }
+}
+
+// ---------- MOBILE MENU BUTTON ----------
+.mobile-menu-button {
+  @include ice;
+  @include icon-button(40px);
+  display: none;
+
+  @include down(md) {
+    display: grid;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    span {
+      width: 18px;
+      height: 2px;
+      background: color(text-on-glass);
+      border-radius: 1px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+  }
+
+  &[aria-expanded='true'] .hamburger {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+  }
+}
+
+// ---------- MOBILE MENU OVERLAY ----------
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: z(overlay) + 1;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__content {
+    @include glass;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    padding: space(8);
+    border-radius: radius(xl);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: space(4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}

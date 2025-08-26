@@ -1,0 +1,36 @@
+@import '../../scss/tokens';
+@import '../../scss/mixins';
+
+// ---------- HEADER ----------
+.header {
+  @include glass(
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.24)
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: z(overlay);
+  padding: space(4) space(6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--transparent {
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+  }
+
+  &--hidden {
+    transform: translateY(-100%);
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

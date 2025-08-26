@@ -60,6 +60,67 @@
     animation-delay: -25s;
     background: color(green-400);
   }
+
+  // Page-specific background variations
+  &--home {
+    .one {
+      background: color(blue-400);
+    }
+    .two {
+      background: color(green-400);
+    }
+    .thr {
+      background: color(pink-400);
+    }
+  }
+
+  &--about {
+    .one {
+      background: color(pink-400);
+    }
+    .two {
+      background: color(blue-400);
+    }
+    .thr {
+      background: color(green-400);
+    }
+  }
+
+  &--projects {
+    .one {
+      background: color(green-400);
+    }
+    .two {
+      background: color(pink-400);
+    }
+    .thr {
+      background: color(blue-400);
+    }
+  }
+
+  &--experience {
+    .one {
+      background: color(blue-400);
+    }
+    .two {
+      background: color(pink-400);
+    }
+    .thr {
+      background: color(green-400);
+    }
+  }
+
+  &--contact {
+    .one {
+      background: color(pink-400);
+    }
+    .two {
+      background: color(green-400);
+    }
+    .thr {
+      background: color(blue-400);
+    }
+  }
 }
 
 @keyframes float {

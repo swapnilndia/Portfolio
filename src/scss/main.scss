@@ -2,6 +2,10 @@
 @import 'mixins';
 @import 'background';
 @import 'components';
+@import 'components/header';
+@import 'components/navigation';
+@import 'components/mobile-menu';
+@import 'components/alternating-section';
 
 // Root page styles (demo)
 html,
@@ -24,6 +28,7 @@ body {
   position: relative;
   z-index: z(content);
   padding: clamp(16px, 3vw, 32px);
+  padding-top: clamp(80px, 8vw, 120px); // Add top padding for fixed header
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -39,6 +44,23 @@ body {
 .hero {
   @include hero;
   margin-top: space(6);
+
+  // Reverse layout - cards on left, text on right
+  &--reverse {
+    grid-template-columns: 1fr 1.2fr;
+
+    @include down(md) {
+      grid-template-columns: 1fr;
+
+      // On mobile, keep text first
+      > div:first-child {
+        order: 2;
+      }
+      > div:last-child {
+        order: 1;
+      }
+    }
+  }
 }
 
 // Right column stack

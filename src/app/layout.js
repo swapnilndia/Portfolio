@@ -1,5 +1,6 @@
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import '../scss/main.scss';
+import Header from '../components/Header';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
+        <Header />
         {children}
       </body>
     </html>

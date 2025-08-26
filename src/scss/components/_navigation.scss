@@ -1,0 +1,115 @@
+@import '../tokens';
+@import '../mixins';
+
+// ---------- NAVIGATION ----------
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: space(8);
+
+  @include down(md) {
+    display: none;
+  }
+
+  &__spacer {
+    flex: 1;
+  }
+
+  &__list {
+    display: flex;
+    gap: space(5);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// ---------- NAV LINKS ----------
+.nav-link {
+  @include ice;
+  @include on-glass;
+  display: inline-flex;
+  align-items: center;
+  padding: space(3) space(5);
+  border-radius: radius(md);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 3px 3px 8px rgba(255, 255, 255, 0.4),
+      inset -8px -10px 20px rgba(0, 0, 0, 0.35),
+      0 16px 34px rgba(0, 0, 0, 0.45);
+  }
+
+  &--active {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28),
+      rgba(255, 255, 255, 0.12)
+    );
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: radius(circle);
+      background: color(blue-400);
+      box-shadow: 0 0 8px color(blue-400);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid color(blue-400);
+    outline-offset: 2px;
+  }
+}
+
+// ---------- MOBILE MENU BUTTON ----------
+.mobile-menu-button {
+  @include ice;
+  @include icon-button(40px);
+  display: none;
+
+  @include down(md) {
+    display: grid;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    span {
+      width: 18px;
+      height: 2px;
+      background: color(text-on-glass);
+      border-radius: 1px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+  }
+
+  &[aria-expanded='true'] .hamburger {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@import '../../scss/tokens';
+@import '../../scss/mixins';
+
+// ---------- BUTTON COMPONENT ----------
+.btn {
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: space(3);
+  font-family: inherit;
+  transition: all 0.2s ease;
+
+  &--primary {
+    @include btn-primary;
+  }
+
+  &--ghost {
+    @include btn-ghost;
+  }
+
+  &--sm {
+    padding: space(2) space(4);
+    font-size: 12px;
+  }
+
+  &--md {
+    padding: space(3) space(5);
+    font-size: 14px;
+  }
+
+  &--lg {
+    padding: space(4) space(6);
+    font-size: 16px;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:hover:not(&--disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:focus {
+    outline: 2px solid color(blue-400);
+    outline-offset: 2px;
+  }
+}

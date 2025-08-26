@@ -1,0 +1,48 @@
+@import '../../scss/tokens';
+@import '../../scss/mixins';
+
+// ---------- LOGO ----------
+.logo {
+  display: flex;
+  align-items: center;
+  gap: space(4);
+  text-decoration: none;
+  color: inherit;
+  padding: space(3) space(4);
+  @include round(sm);
+  transition: all 0.2s ease;
+
+  &:hover {
+    @include ice;
+    transform: translateY(-1px);
+  }
+
+  &__icon {
+    width: 22px;
+    height: 22px;
+    fill: color(text-on-glass);
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
+  }
+
+  &__text {
+    @include on-glass;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  &--sm &__icon {
+    width: 18px;
+    height: 18px;
+  }
+  &--sm &__text {
+    font-size: 14px;
+  }
+
+  &--lg &__icon {
+    width: 26px;
+    height: 26px;
+  }
+  &--lg &__text {
+    font-size: 18px;
+  }
+}
