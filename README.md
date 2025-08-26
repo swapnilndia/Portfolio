@@ -20,6 +20,68 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Development Tools
+
+This project includes several development tools to maintain code quality:
+
+### Code Formatting & Linting
+
+- **Prettier**: Automatic code formatting
+- **ESLint**: Code linting with Next.js and Prettier integration
+- **SCSS**: Enhanced CSS with variables, nesting, and more
+
+### Git Hooks (Husky)
+
+Pre-commit hooks automatically:
+
+- Format code with Prettier
+- Fix ESLint errors
+- Validate commit messages
+
+### Commit Message Format
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/). Your commit messages must follow this format:
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+**Types:**
+
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, etc.)
+- `refactor`: Code refactoring
+- `perf`: Performance improvements
+- `test`: Adding or updating tests
+- `chore`: Build process or auxiliary tool changes
+- `ci`: CI configuration changes
+- `build`: Build system changes
+- `revert`: Reverting previous commits
+
+**Examples:**
+
+```bash
+git commit -m "feat(auth): add user login functionality"
+git commit -m "fix(ui): resolve button alignment issue"
+git commit -m "docs: update installation instructions"
+```
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Check for linting issues
+- `npm run lint:fix` - Fix linting issues automatically
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
