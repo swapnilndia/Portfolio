@@ -57,10 +57,10 @@ export default function Contact() {
                 }}
               ></div>
               <div className="meta">
-                <h3>Let's Collaborate</h3>
+                <h3>Let&apos;s Collaborate</h3>
                 <p>
                   Whether you have a project in mind or just want to chat about
-                  technology, I'd love to hear from you.
+                  technology, I&apos;d love to hear from you.
                 </p>
                 <div className="price">Response within 24 hours</div>
                 <div className="buy-row">
@@ -116,7 +116,7 @@ export default function Contact() {
                 <h3>Direct Contact</h3>
                 <p>
                   For project inquiries, collaborations, or just to say hello.
-                  I'm always open to interesting conversations.
+                  I&apos;m always open to interesting conversations.
                 </p>
                 <div className="price">Email • Phone • Video Call</div>
                 <div className="buy-row">
@@ -159,9 +159,9 @@ export default function Contact() {
               How to Reach Me
             </h2>
             <p className="subtitle">
-              I prefer email for initial contact, but I'm also available for
-              phone calls and video meetings. I typically respond within 4 hours
-              during business days.
+              I prefer email for initial contact, but I&apos;m also available
+              for phone calls and video meetings. I typically respond within 4
+              hours during business days.
             </p>
 
             <div className="chips">
@@ -215,7 +215,7 @@ export default function Contact() {
                 <h3>Available Services</h3>
                 <p>
                   From full-stack development to technical consulting and code
-                  reviews. Let's discuss your needs.
+                  reviews. Let&apos;s discuss your needs.
                 </p>
                 <div className="price">Flexible rates • Quality guaranteed</div>
                 <div className="buy-row">

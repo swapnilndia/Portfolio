@@ -17,7 +17,7 @@ export default function About() {
           <div>
             <h1 className="title">About Me</h1>
             <p className="subtitle">
-              I'm a passionate full-stack developer with over 5 years of
+              I&apos;m a passionate full-stack developer with over 5 years of
               experience creating beautiful, functional web applications. I
               specialize in modern JavaScript frameworks and have a keen eye for
               design and user experience.
