@@ -12,12 +12,40 @@ export default function Home() {
         {/* Navigation */}
         <nav className="nav">
           <div className="brand">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            <strong>Swapnil Katiyar</strong>
+            <a
+              href="/"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                textDecoration: 'none',
+                color: 'inherit',
+              }}
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+              <strong>Swapnil Katiyar</strong>
+            </a>
           </div>
           <div className="spacer"></div>
+          <div
+            className="nav-links"
+            style={{ display: 'flex', gap: '24px', alignItems: 'center' }}
+          >
+            <a href="/about" className="nav-link">
+              About
+            </a>
+            <a href="/projects" className="nav-link">
+              Projects
+            </a>
+            <a href="/experience" className="nav-link">
+              Experience
+            </a>
+            <a href="/contact" className="nav-link">
+              Contact
+            </a>
+          </div>
           <button className="icon-btn">
             <svg
               viewBox="0 0 24 24"
@@ -45,8 +73,12 @@ export default function Home() {
             </p>
 
             <div className="cta-row">
-              <button className="btn primary">View My Work</button>
-              <button className="btn ghost">Get In Touch</button>
+              <a href="/projects" className="btn primary">
+                View My Work
+              </a>
+              <a href="/contact" className="btn ghost">
+                Get In Touch
+              </a>
             </div>
 
             <div className="chips">
@@ -70,7 +102,9 @@ export default function Home() {
                 </p>
                 <div className="price">Featured Project</div>
                 <div className="buy-row">
-                  <button className="btn primary">Live Demo</button>
+                  <a href="/projects" className="btn primary">
+                    Live Demo
+                  </a>
                   <button className="btn ghost">Source Code</button>
                 </div>
               </div>
@@ -190,7 +224,9 @@ export default function Home() {
                 </p>
                 <div className="price">React • Node.js • Stripe</div>
                 <div className="buy-row">
-                  <button className="btn primary">View Project</button>
+                  <a href="/projects" className="btn primary">
+                    View Project
+                  </a>
                   <button className="btn ghost">Case Study</button>
                 </div>
               </div>
@@ -223,8 +259,14 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="foot">
+        <footer
+          className="foot"
+          style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
+        >
           <p>Built with Next.js, SCSS, and lots of ☕</p>
+          <p style={{ marginTop: '8px', fontSize: '12px', opacity: '0.7' }}>
+            © 2024 Swapnil Katiyar. All rights reserved.
+          </p>
         </footer>
       </div>
     </>

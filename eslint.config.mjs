@@ -1,4 +1,45 @@
+import js from '@eslint/js';
+
 export default [
+  js.configs.recommended,
+  {
+    files: ['**/*.{js,jsx}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      globals: {
+        window: 'readonly',
+        document: 'readonly',
+        console: 'readonly',
+        process: 'readonly',
+        Buffer: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        exports: 'readonly',
+        global: 'readonly',
+        requestAnimationFrame: 'readonly',
+        cancelAnimationFrame: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['warn', { 
+        varsIgnorePattern: '^React$',
+        argsIgnorePattern: '^_'
+      }],
+      'no-undef': 'error',
+    },
+  },
   {
     ignores: [
       'node_modules/**',
@@ -8,43 +49,5 @@ export default [
       'next-env.d.ts',
       '.husky/**',
     ],
-  },
-  {
-    files: ['**/*.{js,jsx}'],
-    languageOptions: {
-      parser: '@babel/eslint-parser',
-      parserOptions: {
-        requireConfigFile: true,
-        babelOptions: {
-          presets: ['next/babel', '@babel/preset-react'],
-        },
-      },
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      globals: {
-        React: 'readonly',
-        console: 'readonly',
-        process: 'readonly',
-        Buffer: 'readonly',
-        __dirname: 'readonly',
-        __filename: 'readonly',
-        exports: 'writable',
-        module: 'writable',
-        require: 'readonly',
-        global: 'readonly',
-        window: 'readonly',
-        document: 'readonly',
-        navigator: 'readonly',
-        localStorage: 'readonly',
-        sessionStorage: 'readonly',
-        fetch: 'readonly',
-      },
-    },
-    rules: {
-      'no-unused-vars': 'warn',
-      'no-console': 'warn',
-      'no-undef': 'error',
-      'prefer-const': 'warn',
-    },
   },
 ];
