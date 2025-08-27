@@ -1,6 +1,16 @@
+import StructuredData from '../../components/SEO/StructuredData.js';
+import { generateAllWorkExperienceSchema } from '../../data/experience.js';
+
 export default function Experience() {
+  const workExperienceSchema = generateAllWorkExperienceSchema();
+
   return (
     <>
+      {/* Structured Data for Experience Page */}
+      {workExperienceSchema.map((data, index) => (
+        <StructuredData key={index} data={data} />
+      ))}
+
       {/* Animated background blobs */}
       <div className="blobs blobs--experience">
         <div className="blob one"></div>

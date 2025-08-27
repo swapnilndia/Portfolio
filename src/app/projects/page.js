@@ -1,6 +1,16 @@
+import StructuredData from '../../components/SEO/StructuredData.js';
+import { generateAllProjectsSchema } from '../../data/projects.js';
+
 export default function Projects() {
+  const projectsSchema = generateAllProjectsSchema();
+
   return (
     <>
+      {/* Structured Data for Projects Page */}
+      {projectsSchema.map((data, index) => (
+        <StructuredData key={index} data={data} />
+      ))}
+
       {/* Animated background blobs */}
       <div className="blobs blobs--projects">
         <div className="blob one"></div>

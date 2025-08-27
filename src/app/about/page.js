@@ -1,6 +1,16 @@
+import StructuredData from '../../components/SEO/StructuredData.js';
+import { getPageSEOConfig } from '../../data/seo-config.js';
+
 export default function About() {
+  const seoConfig = getPageSEOConfig('about');
+
   return (
     <>
+      {/* Structured Data for About Page */}
+      {seoConfig.structuredData.map((data, index) => (
+        <StructuredData key={index} data={data} />
+      ))}
+
       {/* Animated background blobs */}
       <div className="blobs blobs--about">
         <div className="blob one"></div>

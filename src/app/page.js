@@ -1,6 +1,31 @@
+import { generatePageMetadata } from '../lib/seo/metadata.js';
+import { getPageSEOConfig } from '../data/seo-config.js';
+import StructuredData from '../components/SEO/StructuredData.js';
+
+// Generate metadata for homepage
+export async function generateMetadata() {
+  const seoConfig = getPageSEOConfig('home');
+
+  return generatePageMetadata({
+    title: seoConfig.title,
+    description: seoConfig.description,
+    keywords: seoConfig.keywords,
+    path: '',
+    ogImage: seoConfig.ogImage,
+    type: seoConfig.ogType || 'website',
+  });
+}
+
 export default function Home() {
+  const seoConfig = getPageSEOConfig('home');
+
   return (
     <>
+      {/* Structured Data for Homepage */}
+      {seoConfig.structuredData.map((data, index) => (
+        <StructuredData key={index} data={data} />
+      ))}
+
       {/* Animated background blobs */}
       <div className="blobs blobs--home">
         <div className="blob one"></div>

@@ -1,8 +1,18 @@
 'use client';
 
+import StructuredData from '../../components/SEO/StructuredData.js';
+import { getPageSEOConfig } from '../../data/seo-config.js';
+
 export default function Contact() {
+  const seoConfig = getPageSEOConfig('contact');
+
   return (
     <>
+      {/* Structured Data for Contact Page */}
+      {seoConfig.structuredData.map((data, index) => (
+        <StructuredData key={index} data={data} />
+      ))}
+
       {/* Animated background blobs */}
       <div className="blobs blobs--contact">
         <div className="blob one"></div>
