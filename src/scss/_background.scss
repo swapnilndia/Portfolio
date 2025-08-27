@@ -8,10 +8,11 @@
     color(surface-dark-1),
     color(blue-600),
     color(pink-600),
-    color(surface-dark-2)
+    color(surface-dark-2),
+    color(surface-dark-1)
   );
-  background-size: 600% 600%;
-  animation: gradientShift 50s ease infinite;
+  background-size: 400% 400%;
+  animation: gradientShift 60s ease-in-out infinite;
 }
 
 @keyframes gradientShift {
@@ -19,10 +20,22 @@
     background-position: 0% 50%;
     filter: hue-rotate(0deg);
   }
-  50% {
+
+  25% {
     background-position: 100% 50%;
+    filter: hue-rotate(5deg);
+  }
+
+  50% {
+    background-position: 100% 100%;
     filter: hue-rotate(10deg);
   }
+
+  75% {
+    background-position: 0% 100%;
+    filter: hue-rotate(5deg);
+  }
+
   100% {
     background-position: 0% 50%;
     filter: hue-rotate(0deg);
@@ -36,6 +49,7 @@
   z-index: z(background);
   pointer-events: none;
   filter: blur(40px) opacity(0.25);
+
   .blob {
     position: absolute;
     width: 40vmax;
@@ -43,17 +57,20 @@
     border-radius: 50%;
     animation: float 40s ease-in-out infinite;
   }
+
   .one {
     left: 2%;
     top: 8%;
     background: color(blue-400);
   }
+
   .two {
     right: -4%;
     top: -2%;
     animation-delay: -15s;
     background: color(pink-400);
   }
+
   .thr {
     left: 35%;
     bottom: -8%;
@@ -61,16 +78,40 @@
     background: color(green-400);
   }
 
+  .four {
+    right: 15%;
+    bottom: 10%;
+    animation-delay: -35s;
+    background: color(blue-300);
+  }
+
+  .five {
+    left: -5%;
+    top: 45%;
+    animation-delay: -45s;
+    background: color(pink-600);
+  }
+
   // Page-specific background variations
   &--home {
     .one {
       background: color(blue-400);
     }
+
     .two {
       background: color(green-400);
     }
+
     .thr {
       background: color(pink-400);
+    }
+
+    .four {
+      background: color(blue-300);
+    }
+
+    .five {
+      background: color(green-600);
     }
   }
 
@@ -78,11 +119,21 @@
     .one {
       background: color(pink-400);
     }
+
     .two {
       background: color(blue-400);
     }
+
     .thr {
       background: color(green-400);
+    }
+
+    .four {
+      background: color(pink-600);
+    }
+
+    .five {
+      background: color(blue-300);
     }
   }
 
@@ -90,11 +141,21 @@
     .one {
       background: color(green-400);
     }
+
     .two {
       background: color(pink-400);
     }
+
     .thr {
       background: color(blue-400);
+    }
+
+    .four {
+      background: color(green-600);
+    }
+
+    .five {
+      background: color(pink-600);
     }
   }
 
@@ -102,11 +163,21 @@
     .one {
       background: color(blue-400);
     }
+
     .two {
       background: color(pink-400);
     }
+
     .thr {
       background: color(green-400);
+    }
+
+    .four {
+      background: color(blue-600);
+    }
+
+    .five {
+      background: color(blue-300);
     }
   }
 
@@ -114,11 +185,21 @@
     .one {
       background: color(pink-400);
     }
+
     .two {
       background: color(green-400);
     }
+
     .thr {
       background: color(blue-400);
+    }
+
+    .four {
+      background: color(pink-600);
+    }
+
+    .five {
+      background: color(green-600);
     }
   }
 }
@@ -128,6 +209,7 @@
   100% {
     transform: translate(0, 0) scale(1);
   }
+
   50% {
     transform: translate(2vmax, -3vmax) scale(1.05);
   }

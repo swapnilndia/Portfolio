@@ -17,15 +17,18 @@ export default function About() {
           <div>
             <h1 className="title">About Me</h1>
             <p className="subtitle">
-              I&apos;m a passionate full-stack developer with over 5 years of
-              experience creating beautiful, functional web applications. I
-              specialize in modern JavaScript frameworks and have a keen eye for
-              design and user experience.
+              Hi, I&apos;m Swapnil Katiyar — a Front-End Developer who loves
+              turning designs into fast, scalable, and user-friendly
+              applications. With experience across eCommerce, gaming, and
+              enterprise systems, I focus on building products that don&apos;t
+              just work, but feel effortless.
             </p>
             <p className="subtitle">
-              My journey in web development started with a curiosity about how
-              websites work, and it has evolved into a deep passion for creating
-              digital experiences that make a difference.
+              My journey started as a Structural Design Engineer, mentoring 200+
+              students while designing safe, efficient structures. In 2022, I
+              pivoted into tech and haven&apos;t looked back since. Every step
+              has been about learning fast, solving real problems, and raising
+              the bar on performance and usability.
             </p>
 
             <div className="cta-row">
@@ -34,10 +37,10 @@ export default function About() {
             </div>
 
             <div className="chips">
-              <span className="chip">5+ Years Experience</span>
-              <span className="chip">50+ Projects</span>
-              <span className="chip">Remote Work</span>
-              <span className="chip">Team Leadership</span>
+              <span className="chip">Frontend Developer</span>
+              <span className="chip">React & Next.js</span>
+              <span className="chip">100/100 Lighthouse SEO</span>
+              <span className="chip">200+ Students Mentored</span>
             </div>
           </div>
 
@@ -76,8 +79,10 @@ export default function About() {
                 }}
               ></div>
               <div className="track">
-                <div className="name">Education & Certs</div>
-                <div className="artist">Computer Science • AWS Certified</div>
+                <div className="name">Background</div>
+                <div className="artist">
+                  Structural Engineering • Frontend Developer
+                </div>
               </div>
               <button className="play">
                 <svg
@@ -114,8 +119,9 @@ export default function About() {
               <div className="meta">
                 <h3>My Philosophy</h3>
                 <p>
-                  Quality over quantity. Clean, maintainable code that solves
-                  real problems and creates delightful user experiences.
+                  Building products that don&apos;t just work, but feel
+                  effortless. Clean, maintainable code with a focus on
+                  performance and user experience.
                 </p>
                 <div className="price">Quality • Innovation • Impact</div>
                 <div className="buy-row">
@@ -136,7 +142,7 @@ export default function About() {
               <div className="track">
                 <div className="name">Current Focus</div>
                 <div className="artist">
-                  AI Integration • Web3 • Performance
+                  eCommerce • Gaming • Performance Optimization
                 </div>
               </div>
               <button className="play">
@@ -161,22 +167,30 @@ export default function About() {
               My Journey
             </h2>
             <p className="subtitle">
-              My development journey started in 2019 when I discovered the power
-              of code to solve real-world problems. What began as curiosity
-              quickly became a passion for creating digital experiences that
-              matter.
+              <strong>2019–2022:</strong> Started as a Structural Design
+              Engineer, mentoring 200+ students while designing safe, efficient
+              structures.
             </p>
             <p className="subtitle">
-              I believe in continuous learning and staying up-to-date with the
-              latest technologies while maintaining a strong foundation in core
-              principles.
+              <strong>2022:</strong> Pivoted into tech with an internship at
+              Sharpener Tech, diving into React, Material-UI, and Firebase.
+            </p>
+            <p className="subtitle">
+              <strong>2023–2024:</strong> Joined Treeroot Informatics,
+              delivering a Credit Management System for Dutch clients and
+              sharpening my API integration skills.
+            </p>
+            <p className="subtitle">
+              <strong>2025:</strong> Built gaming platforms at WagerGeeks, then
+              moved to Tekonika Technologies to scale eCommerce applications and
+              achieve a perfect 100/100 Lighthouse SEO score.
             </p>
 
             <div className="chips">
-              <span className="chip">Started in 2019</span>
-              <span className="chip">Self-taught</span>
-              <span className="chip">Continuous Learning</span>
-              <span className="chip">Open Source</span>
+              <span className="chip">Started 2019</span>
+              <span className="chip">Tech Pivot 2022</span>
+              <span className="chip">Fast Learner</span>
+              <span className="chip">Problem Solver</span>
             </div>
           </div>
         </section>
@@ -194,9 +208,22 @@ export default function About() {
               Skills & Technologies
             </h2>
             <p className="subtitle">
-              I work with a diverse range of technologies to build scalable,
-              performant applications. My expertise spans both frontend and
-              backend development.
+              <strong>Frontend:</strong> React.js, Next.js, JavaScript (ES6+),
+              TypeScript, HTML5, CSS3
+            </p>
+            <p className="subtitle">
+              <strong>UI & State:</strong> Redux, Context API, SCSS, Tailwind
+              CSS, Material-UI
+            </p>
+            <p className="subtitle">
+              <strong>Integration:</strong> RESTful APIs, Postman, Swagger
+            </p>
+            <p className="subtitle">
+              <strong>Tools:</strong> Git, GitHub, Jira, Figma, AWS (EC2, RDS)
+            </p>
+            <p className="subtitle">
+              💡 Always learning: staying on top of modern frontend trends,
+              performance hacks, and SEO best practices.
             </p>
 
             <div className="cta-row">
@@ -206,9 +233,9 @@ export default function About() {
 
             <div className="chips">
               <span className="chip">React & Next.js</span>
-              <span className="chip">Node.js</span>
               <span className="chip">TypeScript</span>
-              <span className="chip">MongoDB</span>
+              <span className="chip">SCSS & Tailwind</span>
+              <span className="chip">AWS & APIs</span>
             </div>
           </div>
 

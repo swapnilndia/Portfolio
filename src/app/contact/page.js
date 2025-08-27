@@ -1,3 +1,5 @@
+'use client';
+
 export default function Contact() {
   return (
     <>
@@ -22,24 +24,41 @@ export default function Contact() {
               Get In Touch
             </h1>
             <p className="subtitle">
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-              aut fugit, sed quia consequuntur magni dolores eos qui ratione
-              voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-              ipsum quia dolor sit amet.
+              I&apos;m always excited to connect with fellow developers,
+              potential collaborators, and anyone interested in discussing
+              technology, software development, or new opportunities. Let&apos;s
+              build something amazing together!
             </p>
 
             <div
               className="cta-row"
               style={{ marginTop: 'clamp(20px, 3vw, 32px)' }}
             >
-              <button className="btn primary">Send Message</button>
-              <button className="btn ghost">Schedule Call</button>
+              <button
+                className="btn primary"
+                onClick={() =>
+                  window.open('mailto:swapnil240695@gmail.com', '_blank')
+                }
+              >
+                Send Message
+              </button>
+              <button
+                className="btn ghost"
+                onClick={() =>
+                  window.open(
+                    'https://www.linkedin.com/in/swapnilndia/',
+                    '_blank'
+                  )
+                }
+              >
+                Schedule Call
+              </button>
             </div>
 
             <div className="chips">
-              <span className="chip">swapnil@example.com</span>
-              <span className="chip">+1 (555) 123-4567</span>
-              <span className="chip">Available Mon-Fri</span>
+              <span className="chip">swapnil240695@gmail.com</span>
+              <span className="chip">+91-7503533658</span>
+              <span className="chip">Noida, India</span>
               <span className="chip">Remote Friendly</span>
             </div>
           </div>
@@ -64,8 +83,25 @@ export default function Contact() {
                 </p>
                 <div className="price">Response within 24 hours</div>
                 <div className="buy-row">
-                  <button className="btn primary">Contact Form</button>
-                  <button className="btn ghost">LinkedIn</button>
+                  <button
+                    className="btn primary"
+                    onClick={() =>
+                      window.open('mailto:swapnil240695@gmail.com', '_blank')
+                    }
+                  >
+                    Contact Form
+                  </button>
+                  <button
+                    className="btn ghost"
+                    onClick={() =>
+                      window.open(
+                        'https://www.linkedin.com/in/swapnilndia/',
+                        '_blank'
+                      )
+                    }
+                  >
+                    LinkedIn
+                  </button>
                 </div>
               </div>
             </div>
@@ -80,9 +116,14 @@ export default function Contact() {
               ></div>
               <div className="track">
                 <div className="name">Follow Me</div>
-                <div className="artist">GitHub • LinkedIn • Twitter</div>
+                <div className="artist">GitHub • LinkedIn • LeetCode</div>
               </div>
-              <button className="play">
+              <button
+                className="play"
+                onClick={() =>
+                  window.open('https://github.com/swapnilndia', '_blank')
+                }
+              >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -120,8 +161,25 @@ export default function Contact() {
                 </p>
                 <div className="price">Email • Phone • Video Call</div>
                 <div className="buy-row">
-                  <button className="btn primary">Send Email</button>
-                  <button className="btn ghost">Book Call</button>
+                  <button
+                    className="btn primary"
+                    onClick={() =>
+                      window.open('mailto:swapnil240695@gmail.com', '_blank')
+                    }
+                  >
+                    Send Email
+                  </button>
+                  <button
+                    className="btn ghost"
+                    onClick={() =>
+                      window.open(
+                        'https://www.linkedin.com/in/swapnilndia/',
+                        '_blank'
+                      )
+                    }
+                  >
+                    Book Call
+                  </button>
                 </div>
               </div>
             </div>
@@ -161,14 +219,15 @@ export default function Contact() {
             <p className="subtitle">
               I prefer email for initial contact, but I&apos;m also available
               for phone calls and video meetings. I typically respond within 4
-              hours during business days.
+              hours during business days. I&apos;m fluent in both Hindi and
+              English.
             </p>
 
             <div className="chips">
               <span className="chip">Email Preferred</span>
+              <span className="chip">Hindi Native</span>
+              <span className="chip">English Fluent</span>
               <span className="chip">Quick Response</span>
-              <span className="chip">Professional</span>
-              <span className="chip">Friendly</span>
             </div>
           </div>
         </section>
@@ -186,15 +245,15 @@ export default function Contact() {
               What I Can Help With
             </h2>
             <p className="subtitle">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo.
+              I specialize in full-stack development with expertise in modern
+              web technologies. Whether you need help with a new project, code
+              review, technical consulting, or mentoring, I&apos;m here to help
+              you achieve your goals.
             </p>
 
             <div className="chips">
-              <span className="chip">Web Development</span>
-              <span className="chip">Consulting</span>
+              <span className="chip">Full-Stack Development</span>
+              <span className="chip">Technical Consulting</span>
               <span className="chip">Code Review</span>
               <span className="chip">Mentoring</span>
             </div>
@@ -219,8 +278,25 @@ export default function Contact() {
                 </p>
                 <div className="price">Flexible rates • Quality guaranteed</div>
                 <div className="buy-row">
-                  <button className="btn primary">Discuss Project</button>
-                  <button className="btn ghost">View Rates</button>
+                  <button
+                    className="btn primary"
+                    onClick={() =>
+                      window.open('mailto:swapnil240695@gmail.com', '_blank')
+                    }
+                  >
+                    Discuss Project
+                  </button>
+                  <button
+                    className="btn ghost"
+                    onClick={() =>
+                      window.open(
+                        'https://www.linkedin.com/in/swapnilndia/',
+                        '_blank'
+                      )
+                    }
+                  >
+                    View Rates
+                  </button>
                 </div>
               </div>
             </div>
@@ -256,7 +332,13 @@ export default function Contact() {
           className="icon-row"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
         >
-          <div className="icon-card">
+          <div
+            className="icon-card"
+            onClick={() =>
+              window.open('mailto:swapnil240695@gmail.com', '_blank')
+            }
+            style={{ cursor: 'pointer' }}
+          >
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -268,7 +350,13 @@ export default function Contact() {
             </svg>
             <span>Email</span>
           </div>
-          <div className="icon-card">
+          <div
+            className="icon-card"
+            onClick={() =>
+              window.open('https://www.linkedin.com/in/swapnilndia/', '_blank')
+            }
+            style={{ cursor: 'pointer' }}
+          >
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -281,7 +369,13 @@ export default function Contact() {
             </svg>
             <span>LinkedIn</span>
           </div>
-          <div className="icon-card">
+          <div
+            className="icon-card"
+            onClick={() =>
+              window.open('https://github.com/swapnilndia', '_blank')
+            }
+            style={{ cursor: 'pointer' }}
+          >
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -292,16 +386,24 @@ export default function Contact() {
             </svg>
             <span>GitHub</span>
           </div>
-          <div className="icon-card">
+          <div
+            className="icon-card"
+            onClick={() =>
+              window.open('https://leetcode.com/u/Swapnilndia/', '_blank')
+            }
+            style={{ cursor: 'pointer' }}
+          >
             <svg
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
             >
-              <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="9" cy="9" r="2" />
+              <path d="M21 15.5c-1-1.4-3-2.5-5-2.5s-4 1.1-5 2.5" />
             </svg>
-            <span>Twitter</span>
+            <span>LeetCode</span>
           </div>
         </section>
 

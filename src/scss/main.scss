@@ -11,6 +11,7 @@
 html,
 body {
   height: 100%;
+  min-height: 100vh;
 }
 body {
   margin: 0;
@@ -19,9 +20,20 @@ body {
     sans-serif;
   color: color(text-on-glass);
   overflow-x: hidden;
+  position: relative;
 
   // Calm animated background
   @extend %calm-background;
+
+  // Ensure background covers full viewport
+  background-attachment: fixed;
+
+  // Prevent scrolling when mobile menu is open
+  &.mobile-menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
 }
 
 .wrap {
@@ -31,6 +43,8 @@ body {
   padding-top: clamp(80px, 8vw, 120px); // Add top padding for fixed header
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 // Optional blob layer - styles are in _background.scss

@@ -19,14 +19,14 @@ const useMobileMenu = () => {
   useEffect(() => {
     if (typeof document !== 'undefined') {
       if (isOpen) {
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('mobile-menu-open');
       } else {
-        document.body.style.overflow = '';
+        document.body.classList.remove('mobile-menu-open');
       }
 
       // Cleanup on unmount
       return () => {
-        document.body.style.overflow = '';
+        document.body.classList.remove('mobile-menu-open');
       };
     }
   }, [isOpen]);

@@ -13,14 +13,15 @@ export default function Home() {
         <section className="hero">
           <div>
             <h1 className="title">
-              Full-Stack Developer &
+              Software Developer &
               <br />
-              Digital Craftsman
+              Frontend Specialist
             </h1>
             <p className="subtitle">
-              I create beautiful, performant web applications using modern
-              technologies. Passionate about clean code, user experience, and
-              bringing ideas to life.
+              I build scalable eCommerce platforms and web applications using
+              React, Next.js, and modern JavaScript. Currently at Tekonika
+              Technologies, optimizing performance and achieving perfect SEO
+              scores.
             </p>
 
             <div className="cta-row">
@@ -46,12 +47,13 @@ export default function Home() {
             <div className="product">
               <div className="mock-img"></div>
               <div className="meta">
-                <h3>Portfolio Dashboard</h3>
+                <h3>eCommerce Platform</h3>
                 <p>
-                  A modern portfolio management system built with Next.js and
-                  glassmorphism design.
+                  Scalable eCommerce frontend built with React, Redux, and SCSS.
+                  Achieved 100/100 Lighthouse SEO score and optimized
+                  performance.
                 </p>
-                <div className="price">Featured Project</div>
+                <div className="price">Current Project</div>
                 <div className="buy-row">
                   <a href="/projects" className="btn primary">
                     Live Demo
@@ -65,8 +67,8 @@ export default function Home() {
             <div className="player">
               <div className="cover"></div>
               <div className="track">
-                <div className="name">Currently Coding To</div>
-                <div className="artist">Lo-fi Hip Hop Beats</div>
+                <div className="name">Current Role</div>
+                <div className="artist">Software Developer @ Tekonika</div>
               </div>
               <button className="play">
                 <svg viewBox="0 0 24 24" fill="currentColor">

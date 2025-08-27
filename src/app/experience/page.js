@@ -22,10 +22,10 @@ export default function Experience() {
               My Experience
             </h1>
             <p className="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-              vitae, ultricies eget, tempor sit amet, ante.
+              My professional journey spans across leading technology companies
+              in India, from startups to established enterprises. I&apos;ve
+              built eCommerce platforms, gaming applications, and enterprise
+              solutions while mentoring teams and optimizing performance.
             </p>
 
             <div
@@ -37,10 +37,10 @@ export default function Experience() {
             </div>
 
             <div className="chips">
-              <span className="chip">Senior Developer</span>
-              <span className="chip">Tech Lead</span>
-              <span className="chip">Freelancer</span>
-              <span className="chip">Mentor</span>
+              <span className="chip">Software Developer</span>
+              <span className="chip">Frontend Expert</span>
+              <span className="chip">SEO Specialist</span>
+              <span className="chip">Team Mentor</span>
             </div>
           </div>
 
@@ -57,12 +57,15 @@ export default function Experience() {
                 }}
               ></div>
               <div className="meta">
-                <h3>Senior Full-Stack Developer</h3>
+                <h3>Software Developer</h3>
                 <p>
-                  Leading development of scalable web applications and mentoring
-                  junior developers in modern technologies.
+                  Building and maintaining eCommerce platform frontend with
+                  React, Redux, and SCSS. Achieved 100/100 Lighthouse SEO score
+                  and optimized performance across multiple projects.
                 </p>
-                <div className="price">2022 - Present • TechCorp Inc.</div>
+                <div className="price">
+                  May 2025 - Present • Tekonika Technologies
+                </div>
                 <div className="buy-row">
                   <button className="btn primary">View Details</button>
                   <button className="btn ghost">Achievements</button>
@@ -79,8 +82,8 @@ export default function Experience() {
                 }}
               ></div>
               <div className="track">
-                <div className="name">Work Status</div>
-                <div className="artist">Available for consulting</div>
+                <div className="name">Current Role</div>
+                <div className="artist">Pune, Maharashtra</div>
               </div>
               <button className="play">
                 <svg
@@ -115,12 +118,15 @@ export default function Experience() {
                 }}
               ></div>
               <div className="meta">
-                <h3>Key Achievements</h3>
+                <h3>Frontend Developer</h3>
                 <p>
-                  Built the core platform from scratch, implemented CI/CD
-                  pipelines, and reduced deployment time by 70%.
+                  Enhanced legacy gaming platform and built new platform with
+                  Next.js. Designed admin portal for content management and
+                  operational workflows.
                 </p>
-                <div className="price">React • Node.js • AWS • Docker</div>
+                <div className="price">
+                  React • Next.js • Tailwind • HTML/CSS
+                </div>
                 <div className="buy-row">
                   <button className="btn primary">View Projects</button>
                   <button className="btn ghost">Technologies</button>
@@ -136,8 +142,8 @@ export default function Experience() {
                 }}
               ></div>
               <div className="track">
-                <div className="name">Impact</div>
-                <div className="artist">70% faster deployments</div>
+                <div className="name">Location</div>
+                <div className="artist">Indore, Madhya Pradesh</div>
               </div>
               <button className="play">
                 <svg
@@ -157,19 +163,19 @@ export default function Experience() {
               className="title"
               style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
             >
-              Full-Stack Developer
+              WagerGeeks Private Limited
             </h2>
             <p className="subtitle">
-              Built the core platform from scratch, implemented CI/CD pipelines,
-              and reduced deployment time by 70%. Led a team of 8 developers in
-              a fast-paced startup environment.
+              Maintained and enhanced legacy online gaming platform built with
+              React. Contributed to new gaming platform development using
+              Next.js and Tailwind CSS with modern design principles.
             </p>
 
             <div className="chips">
-              <span className="chip">2020 - 2022</span>
-              <span className="chip">StartupXYZ</span>
-              <span className="chip">Remote</span>
-              <span className="chip">Team of 8</span>
+              <span className="chip">Feb 2025 - May 2025</span>
+              <span className="chip">Frontend Developer</span>
+              <span className="chip">Gaming Platform</span>
+              <span className="chip">Admin Portal</span>
             </div>
           </div>
         </section>
@@ -184,20 +190,19 @@ export default function Experience() {
               className="title"
               style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
             >
-              Junior Developer
+              Treeroot Informatics
             </h2>
             <p className="subtitle">
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-              aut fugit, sed quia consequuntur magni dolores eos qui ratione
-              voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-              ipsum quia dolor sit amet.
+              Delivered Credit Management System for Dutch clients using
+              React.js and Redux. Optimized performance with React memoization,
+              dynamic imports, and integrated RESTful APIs with authentication.
             </p>
 
             <div className="chips">
-              <span className="chip">2019 - 2020</span>
-              <span className="chip">WebAgency Pro</span>
-              <span className="chip">On-site</span>
-              <span className="chip">First Job</span>
+              <span className="chip">Jan 2023 - Apr 2024</span>
+              <span className="chip">Frontend Developer</span>
+              <span className="chip">Enterprise Solutions</span>
+              <span className="chip">International Clients</span>
             </div>
           </div>
 
@@ -213,12 +218,15 @@ export default function Experience() {
                 }}
               ></div>
               <div className="meta">
-                <h3>Learning & Growth</h3>
+                <h3>Credit Management System</h3>
                 <p>
-                  Started my professional journey, learned industry best
-                  practices, and contributed to 15+ client projects.
+                  Built scalable enterprise solution for Dutch clients with
+                  React.js and Redux. Implemented performance optimizations and
+                  API integrations.
                 </p>
-                <div className="price">HTML • CSS • JavaScript • PHP</div>
+                <div className="price">
+                  React.js • Redux • RESTful APIs • Postman
+                </div>
                 <div className="buy-row">
                   <button className="btn primary">Client Work</button>
                   <button className="btn ghost">Skills Gained</button>
@@ -234,8 +242,8 @@ export default function Experience() {
                 }}
               ></div>
               <div className="track">
-                <div className="name">Foundation</div>
-                <div className="artist">15+ client projects</div>
+                <div className="name">Location</div>
+                <div className="artist">Ahmedabad, Gujarat</div>
               </div>
               <button className="play">
                 <svg
@@ -246,6 +254,167 @@ export default function Experience() {
                 >
                   <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                   <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Early Career - Reverse Layout */}
+        <section
+          className="hero hero--reverse"
+          style={{ marginTop: 'clamp(24px, 4vw, 48px)' }}
+        >
+          <div className="stack">
+            <div className="product">
+              <div
+                className="mock-img"
+                style={{
+                  background: `
+                  radial-gradient(120% 120% at 50% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0.08) 45%, rgba(255,255,255,0) 60%),
+                  conic-gradient(from 0deg at 50% 50%, #f472b6, #60a5fa, #34d399, #f472b6)
+                `,
+                }}
+              ></div>
+              <div className="meta">
+                <h3>Frontend Development Journey</h3>
+                <p>
+                  Started as intern, built responsive interfaces with React.js
+                  and Material-UI. Mentored 8+ junior developers in frontend
+                  concepts and best practices.
+                </p>
+                <div className="price">
+                  React.js • Material-UI • Redux • Context API
+                </div>
+                <div className="buy-row">
+                  <button className="btn primary">View Growth</button>
+                  <button className="btn ghost">Mentoring</button>
+                </div>
+              </div>
+            </div>
+
+            <div className="player">
+              <div
+                className="cover"
+                style={{
+                  background: 'linear-gradient(135deg, #60a5fa, #2563eb)',
+                }}
+              ></div>
+              <div className="track">
+                <div className="name">Mentoring</div>
+                <div className="artist">8+ developers guided</div>
+              </div>
+              <button className="play">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <h2
+              className="title"
+              style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
+            >
+              Sharpener Tech
+            </h2>
+            <p className="subtitle">
+              Started my software development journey as a Frontend Intern.
+              Built responsive interfaces using React.js, Material-UI, and
+              implemented state management with Redux and Context API.
+            </p>
+
+            <div className="chips">
+              <span className="chip">Jan 2022 - Dec 2022</span>
+              <span className="chip">Frontend Intern</span>
+              <span className="chip">Bangalore, Karnataka</span>
+              <span className="chip">Career Transition</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Engineering Background */}
+        <section
+          className="hero"
+          style={{ marginTop: 'clamp(24px, 4vw, 48px)' }}
+        >
+          <div>
+            <h2
+              className="title"
+              style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
+            >
+              Engineering Background
+            </h2>
+            <p className="subtitle">
+              Before transitioning to software development, I worked as a
+              Structural Design Engineer, mentoring 200+ students and
+              collaborating with architects on residential and commercial
+              projects.
+            </p>
+
+            <div className="chips">
+              <span className="chip">Jun 2019 - Jan 2022</span>
+              <span className="chip">Structural Engineer</span>
+              <span className="chip">200+ Students Mentored</span>
+              <span className="chip">Analytical Foundation</span>
+            </div>
+          </div>
+
+          <div className="stack">
+            <div className="product">
+              <div
+                className="mock-img"
+                style={{
+                  background: `
+                  radial-gradient(120% 120% at 30% 70%, rgba(255,255,255,0.9), rgba(255,255,255,0.08) 45%, rgba(255,255,255,0) 60%),
+                  conic-gradient(from 180deg at 70% 30%, #34d399, #f472b6, #60a5fa, #34d399)
+                `,
+                }}
+              ></div>
+              <div className="meta">
+                <h3>Econstruct Design and Build</h3>
+                <p>
+                  Performed structural analysis and design for residential and
+                  commercial projects. Built strong analytical and
+                  problem-solving foundation.
+                </p>
+                <div className="price">
+                  Structural Analysis • Project Management
+                </div>
+                <div className="buy-row">
+                  <button className="btn primary">Experience</button>
+                  <button className="btn ghost">Skills Transfer</button>
+                </div>
+              </div>
+            </div>
+
+            <div className="player">
+              <div
+                className="cover"
+                style={{
+                  background: 'linear-gradient(135deg, #34d399, #059669)',
+                }}
+              ></div>
+              <div className="track">
+                <div className="name">Foundation</div>
+                <div className="artist">Analytical • Problem-solving</div>
+              </div>
+              <button className="play">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M3 21h18" />
+                  <path d="M5 21V7l8-4v18" />
+                  <path d="M19 21V11l-6-4" />
                 </svg>
               </button>
             </div>
