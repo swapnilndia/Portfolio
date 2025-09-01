@@ -9,8 +9,8 @@ const SITE_CONFIG = {
   description:
     'Experienced full-stack developer specializing in React, Next.js, and modern web technologies. Building scalable eCommerce platforms with 100/100 Lighthouse SEO scores.',
   url: 'https://swapnilkatiyar.dev',
-  ogImage: '/og-image.jpg',
-  twitterImage: '/twitter-image.jpg',
+  ogImage: '/Swapnil_Photo.jpeg',
+  twitterImage: '/Swapnil_Photo.jpeg',
   author: 'Swapnil Katiyar',
   keywords: [
     'Swapnil Katiyar',

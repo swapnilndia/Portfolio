@@ -1,43 +1,30 @@
-import { getSiteConfig } from '../../lib/seo/metadata.js';
+import { generateRobotsTxt } from '../../lib/seo/sitemap.js';
 
 export function GET() {
-  const siteConfig = getSiteConfig();
+  try {
+    const robotsTxt = generateRobotsTxt();
 
-  const robotsTxt = `User-agent: *
+    return new Response(robotsTxt, {
+      headers: {
+        'Content-Type': 'text/plain',
+        'Cache-Control': 'public, max-age=86400, stale-while-revalidate=604800',
+        'X-Robots-Tag': 'noindex', // Don't index robots.txt itself
+      },
+    });
+  } catch (error) {
+    console.error('Error generating robots.txt:', error);
+
+    // Return a basic robots.txt as fallback
+    const fallbackRobots = `User-agent: *
 Allow: /
 
-# Disallow admin and private areas
-Disallow: /admin/
-Disallow: /api/
-Disallow: /_next/
-Disallow: /private/
+Sitemap: https://swapnilkatiyar.dev/sitemap.xml`;
 
-# Allow important files
-Allow: /api/sitemap.xml
-Allow: /favicon.ico
-Allow: /*.css
-Allow: /*.js
-
-# Sitemap location
-Sitemap: ${siteConfig.url}/sitemap.xml
-
-# Crawl delay (optional)
-Crawl-delay: 1
-
-# Specific bot instructions
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /`;
-
-  return new Response(robotsTxt, {
-    headers: {
-      'Content-Type': 'text/plain',
-      'Cache-Control': 'public, max-age=86400', // Cache for 24 hours
-    },
-  });
+    return new Response(fallbackRobots, {
+      headers: {
+        'Content-Type': 'text/plain',
+        'Cache-Control': 'public, max-age=3600',
+      },
+    });
+  }
 }

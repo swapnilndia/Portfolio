@@ -19,7 +19,7 @@
   - Implement ContactPoint schema for contact page with business information
   - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5_
 
-- [ ] 4. Generate XML sitemap and robots.txt
+- [x] 4. Generate XML sitemap and robots.txt
   - Create dynamic sitemap generation using Next.js API routes
   - Implement robots.txt with proper crawling directives and sitemap reference
   - Add sitemap submission logic for search engines
