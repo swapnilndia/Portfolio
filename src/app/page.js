@@ -1,6 +1,7 @@
 import { generatePageMetadata } from '../lib/seo/metadata.js';
 import { getPageSEOConfig } from '../data/seo-config.js';
 import StructuredData from '../components/SEO/StructuredData.js';
+import { getContent } from '../data/content.js';
 
 // Generate metadata for homepage
 export async function generateMetadata() {
@@ -26,44 +27,43 @@ export default function Home() {
         <StructuredData key={index} data={data} />
       ))}
 
-      {/* Animated background blobs */}
-      <div className="blobs blobs--home">
-        <div className="blob one"></div>
-        <div className="blob two"></div>
-        <div className="blob thr"></div>
-      </div>
-
       <div className="wrap">
         {/* Hero Section */}
         <section className="hero">
           <div>
             <h1 className="title">
-              Software Developer &
-              <br />
-              Frontend Specialist
+              {getContent('homepage.title')
+                .split('\n')
+                .map((line, index) => (
+                  <span key={index}>
+                    {line}
+                    {index === 0 && <br />}
+                  </span>
+                ))}
             </h1>
-            <p className="subtitle">
-              I build scalable eCommerce platforms and web applications using
-              React, Next.js, and modern JavaScript. Currently at Tekonika
-              Technologies, optimizing performance and achieving perfect SEO
-              scores.
-            </p>
+            <p className="subtitle">{getContent('homepage.subtitle')}</p>
 
             <div className="cta-row">
               <a href="/projects" className="btn primary">
-                View My Work
+                {getContent('homepage.cta.primary')}
               </a>
               <a href="/contact" className="btn ghost">
-                Get In Touch
+                {getContent('homepage.cta.secondary')}
               </a>
             </div>
 
             <div className="chips">
-              <span className="chip">React & Next.js</span>
-              <span className="chip">Node.js</span>
-              <span className="chip">TypeScript</span>
-              <span className="chip">SCSS/CSS</span>
-              <span className="chip">MongoDB</span>
+              <span className="chip">
+                {getContent('homepage.skills.react')}
+              </span>
+              <span className="chip">{getContent('homepage.skills.node')}</span>
+              <span className="chip">
+                {getContent('homepage.skills.typescript')}
+              </span>
+              <span className="chip">{getContent('homepage.skills.scss')}</span>
+              <span className="chip">
+                {getContent('homepage.skills.mongodb')}
+              </span>
             </div>
           </div>
 
@@ -72,18 +72,18 @@ export default function Home() {
             <div className="product">
               <div className="mock-img"></div>
               <div className="meta">
-                <h3>eCommerce Platform</h3>
-                <p>
-                  Scalable eCommerce frontend built with React, Redux, and SCSS.
-                  Achieved 100/100 Lighthouse SEO score and optimized
-                  performance.
-                </p>
-                <div className="price">Current Project</div>
+                <h3>{getContent('homepage.currentProject.title')}</h3>
+                <p>{getContent('homepage.currentProject.description')}</p>
+                <div className="price">
+                  {getContent('homepage.currentProject.status')}
+                </div>
                 <div className="buy-row">
                   <a href="/projects" className="btn primary">
-                    Live Demo
+                    {getContent('homepage.currentProject.actions.demo')}
                   </a>
-                  <button className="btn ghost">Source Code</button>
+                  <button className="btn ghost">
+                    {getContent('homepage.currentProject.actions.code')}
+                  </button>
                 </div>
               </div>
             </div>
@@ -92,8 +92,12 @@ export default function Home() {
             <div className="player">
               <div className="cover"></div>
               <div className="track">
-                <div className="name">Current Role</div>
-                <div className="artist">Software Developer @ Tekonika</div>
+                <div className="name">
+                  {getContent('homepage.currentRole.title')}
+                </div>
+                <div className="artist">
+                  {getContent('homepage.currentRole.company')}
+                </div>
               </div>
               <button className="play">
                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -114,19 +118,25 @@ export default function Home() {
               className="title"
               style={{ fontSize: 'clamp(20px, 3vw, 32px)' }}
             >
-              My Approach
+              {getContent('homepage.approach.title')}
             </h2>
             <p className="subtitle">
-              I believe in creating digital experiences that are not only
-              beautiful but also functional, accessible, and performant. Every
-              project is an opportunity to solve real problems.
+              {getContent('homepage.approach.description')}
             </p>
 
             <div className="chips">
-              <span className="chip">User-Centered</span>
-              <span className="chip">Performance First</span>
-              <span className="chip">Clean Code</span>
-              <span className="chip">Accessibility</span>
+              <span className="chip">
+                {getContent('homepage.approach.values.userCentered')}
+              </span>
+              <span className="chip">
+                {getContent('homepage.approach.values.performanceFirst')}
+              </span>
+              <span className="chip">
+                {getContent('homepage.approach.values.cleanCode')}
+              </span>
+              <span className="chip">
+                {getContent('homepage.approach.values.accessibility')}
+              </span>
             </div>
           </div>
 
@@ -143,17 +153,18 @@ export default function Home() {
                 }}
               ></div>
               <div className="meta">
-                <h3>Design Philosophy</h3>
-                <p>
-                  Form follows function. Beautiful interfaces that solve real
-                  problems and create delightful user experiences.
-                </p>
-                <div className="price">UX • Performance • Accessibility</div>
+                <h3>{getContent('homepage.philosophy.title')}</h3>
+                <p>{getContent('homepage.philosophy.description')}</p>
+                <div className="price">
+                  {getContent('homepage.philosophy.focus')}
+                </div>
                 <div className="buy-row">
                   <a href="/about" className="btn primary">
-                    Learn More
+                    {getContent('homepage.philosophy.actions.learn')}
                   </a>
-                  <button className="btn ghost">My Process</button>
+                  <button className="btn ghost">
+                    {getContent('homepage.philosophy.actions.process')}
+                  </button>
                 </div>
               </div>
             </div>
@@ -167,8 +178,10 @@ export default function Home() {
                 }}
               ></div>
               <div className="track">
-                <div className="name">Favorite Tools</div>
-                <div className="artist">VS Code • Figma • Git</div>
+                <div className="name">{getContent('homepage.tools.title')}</div>
+                <div className="artist">
+                  {getContent('homepage.tools.list')}
+                </div>
               </div>
               <button className="play">
                 <svg
@@ -196,7 +209,7 @@ export default function Home() {
               <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
               <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
             </svg>
-            <span>Frontend</span>
+            <span>{getContent('homepage.skillsGrid.frontend')}</span>
           </div>
           <div className="icon-card">
             <svg
@@ -209,7 +222,7 @@ export default function Home() {
               <line x1="8" y1="21" x2="16" y2="21" />
               <line x1="12" y1="17" x2="12" y2="21" />
             </svg>
-            <span>Backend</span>
+            <span>{getContent('homepage.skillsGrid.backend')}</span>
           </div>
           <div className="icon-card">
             <svg
@@ -222,7 +235,7 @@ export default function Home() {
               <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
               <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
             </svg>
-            <span>Database</span>
+            <span>{getContent('homepage.skillsGrid.database')}</span>
           </div>
           <div className="icon-card">
             <svg
@@ -233,7 +246,7 @@ export default function Home() {
             >
               <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
-            <span>DevOps</span>
+            <span>{getContent('homepage.skillsGrid.devops')}</span>
           </div>
         </section>
 
@@ -279,8 +292,12 @@ export default function Home() {
                 }}
               ></div>
               <div className="track">
-                <div className="name">Status: Available</div>
-                <div className="artist">Open for new projects</div>
+                <div className="name">
+                  {getContent('homepage.status.title')}
+                </div>
+                <div className="artist">
+                  {getContent('homepage.status.description')}
+                </div>
               </div>
               <button className="play">
                 <svg
@@ -300,18 +317,25 @@ export default function Home() {
               className="title"
               style={{ fontSize: 'clamp(20px, 3vw, 32px)' }}
             >
-              Recent Projects
+              {getContent('homepage.projects.title')}
             </h2>
             <p className="subtitle">
-              A selection of my latest work showcasing different technologies
-              and design approaches.
+              {getContent('homepage.projects.description')}
             </p>
 
             <div className="chips">
-              <span className="chip">E-commerce</span>
-              <span className="chip">SaaS Platform</span>
-              <span className="chip">Mobile App</span>
-              <span className="chip">API Design</span>
+              <span className="chip">
+                {getContent('homepage.projects.categories.ecommerce')}
+              </span>
+              <span className="chip">
+                {getContent('homepage.projects.categories.saas')}
+              </span>
+              <span className="chip">
+                {getContent('homepage.projects.categories.mobile')}
+              </span>
+              <span className="chip">
+                {getContent('homepage.projects.categories.api')}
+              </span>
             </div>
           </div>
         </section>
@@ -321,9 +345,9 @@ export default function Home() {
           className="foot"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
         >
-          <p>Built with Next.js, SCSS, and lots of ☕</p>
+          <p>{getContent('global.builtWith')}</p>
           <p style={{ marginTop: '8px', fontSize: '12px', opacity: '0.7' }}>
-            © 2024 Swapnil Katiyar. All rights reserved.
+            {getContent('global.copyright')}
           </p>
         </footer>
       </div>

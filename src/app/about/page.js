@@ -1,5 +1,21 @@
 import StructuredData from '../../components/SEO/StructuredData.js';
 import { getPageSEOConfig } from '../../data/seo-config.js';
+import { getContent } from '../../data/content.js';
+import { generatePageMetadata } from '../../lib/seo/metadata.js';
+
+// Generate metadata for about page
+export async function generateMetadata() {
+  const seoConfig = getPageSEOConfig('about');
+
+  return generatePageMetadata({
+    title: seoConfig.title,
+    description: seoConfig.description,
+    keywords: seoConfig.keywords,
+    path: '/about',
+    ogImage: seoConfig.ogImage,
+    type: seoConfig.ogType || 'profile',
+  });
+}
 
 export default function About() {
   const seoConfig = getPageSEOConfig('about');
@@ -11,13 +27,6 @@ export default function About() {
         <StructuredData key={index} data={data} />
       ))}
 
-      {/* Animated background blobs */}
-      <div className="blobs blobs--about">
-        <div className="blob one"></div>
-        <div className="blob two"></div>
-        <div className="blob thr"></div>
-      </div>
-
       <div className="wrap">
         {/* About Section - Left aligned (default) */}
         <section
@@ -25,32 +34,26 @@ export default function About() {
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
         >
           <div>
-            <h1 className="title">About Me</h1>
-            <p className="subtitle">
-              Hi, I&apos;m Swapnil Katiyar — a Front-End Developer who loves
-              turning designs into fast, scalable, and user-friendly
-              applications. With experience across eCommerce, gaming, and
-              enterprise systems, I focus on building products that don&apos;t
-              just work, but feel effortless.
-            </p>
-            <p className="subtitle">
-              My journey started as a Structural Design Engineer, mentoring 200+
-              students while designing safe, efficient structures. In 2022, I
-              pivoted into tech and haven&apos;t looked back since. Every step
-              has been about learning fast, solving real problems, and raising
-              the bar on performance and usability.
-            </p>
+            <h1 className="title">{getContent('about.title')}</h1>
+            <p className="subtitle">{getContent('about.intro')}</p>
+            <p className="subtitle">{getContent('about.journey')}</p>
 
             <div className="cta-row">
-              <button className="btn primary">Download Resume</button>
-              <button className="btn ghost">Contact Me</button>
+              <button className="btn primary">
+                {getContent('about.cta.resume')}
+              </button>
+              <button className="btn ghost">
+                {getContent('about.cta.contact')}
+              </button>
             </div>
 
             <div className="chips">
-              <span className="chip">Frontend Developer</span>
-              <span className="chip">React & Next.js</span>
-              <span className="chip">100/100 Lighthouse SEO</span>
-              <span className="chip">200+ Students Mentored</span>
+              <span className="chip">
+                {getContent('about.chips.developer')}
+              </span>
+              <span className="chip">{getContent('about.chips.react')}</span>
+              <span className="chip">{getContent('about.chips.seo')}</span>
+              <span className="chip">{getContent('about.chips.mentor')}</span>
             </div>
           </div>
 
@@ -174,33 +177,38 @@ export default function About() {
               className="title"
               style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
             >
-              My Journey
+              {getContent('about.sections.journey.title')}
             </h2>
             <p className="subtitle">
-              <strong>2019–2022:</strong> Started as a Structural Design
-              Engineer, mentoring 200+ students while designing safe, efficient
-              structures.
+              <strong>2019–2022:</strong>{' '}
+              {getContent('about.sections.journey.timeline.2019')}
             </p>
             <p className="subtitle">
-              <strong>2022:</strong> Pivoted into tech with an internship at
-              Sharpener Tech, diving into React, Material-UI, and Firebase.
+              <strong>2022:</strong>{' '}
+              {getContent('about.sections.journey.timeline.2022')}
             </p>
             <p className="subtitle">
-              <strong>2023–2024:</strong> Joined Treeroot Informatics,
-              delivering a Credit Management System for Dutch clients and
-              sharpening my API integration skills.
+              <strong>2023–2024:</strong>{' '}
+              {getContent('about.sections.journey.timeline.2023')}
             </p>
             <p className="subtitle">
-              <strong>2025:</strong> Built gaming platforms at WagerGeeks, then
-              moved to Tekonika Technologies to scale eCommerce applications and
-              achieve a perfect 100/100 Lighthouse SEO score.
+              <strong>2025:</strong>{' '}
+              {getContent('about.sections.journey.timeline.2025')}
             </p>
 
             <div className="chips">
-              <span className="chip">Started 2019</span>
-              <span className="chip">Tech Pivot 2022</span>
-              <span className="chip">Fast Learner</span>
-              <span className="chip">Problem Solver</span>
+              <span className="chip">
+                {getContent('about.sections.journey.chips.started')}
+              </span>
+              <span className="chip">
+                {getContent('about.sections.journey.chips.pivot')}
+              </span>
+              <span className="chip">
+                {getContent('about.sections.journey.chips.learner')}
+              </span>
+              <span className="chip">
+                {getContent('about.sections.journey.chips.solver')}
+              </span>
             </div>
           </div>
         </section>
@@ -215,25 +223,26 @@ export default function About() {
               className="title"
               style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
             >
-              Skills & Technologies
+              {getContent('about.sections.skills.title')}
             </h2>
             <p className="subtitle">
-              <strong>Frontend:</strong> React.js, Next.js, JavaScript (ES6+),
-              TypeScript, HTML5, CSS3
+              <strong>Frontend:</strong>{' '}
+              {getContent('about.sections.skills.categories.frontend')}
             </p>
             <p className="subtitle">
-              <strong>UI & State:</strong> Redux, Context API, SCSS, Tailwind
-              CSS, Material-UI
+              <strong>UI & State:</strong>{' '}
+              {getContent('about.sections.skills.categories.ui')}
             </p>
             <p className="subtitle">
-              <strong>Integration:</strong> RESTful APIs, Postman, Swagger
+              <strong>Integration:</strong>{' '}
+              {getContent('about.sections.skills.categories.integration')}
             </p>
             <p className="subtitle">
-              <strong>Tools:</strong> Git, GitHub, Jira, Figma, AWS (EC2, RDS)
+              <strong>Tools:</strong>{' '}
+              {getContent('about.sections.skills.categories.tools')}
             </p>
             <p className="subtitle">
-              💡 Always learning: staying on top of modern frontend trends,
-              performance hacks, and SEO best practices.
+              {getContent('about.sections.skills.note')}
             </p>
 
             <div className="cta-row">
@@ -242,10 +251,18 @@ export default function About() {
             </div>
 
             <div className="chips">
-              <span className="chip">React & Next.js</span>
-              <span className="chip">TypeScript</span>
-              <span className="chip">SCSS & Tailwind</span>
-              <span className="chip">AWS & APIs</span>
+              <span className="chip">
+                {getContent('about.sections.skills.chips.react')}
+              </span>
+              <span className="chip">
+                {getContent('about.sections.skills.chips.typescript')}
+              </span>
+              <span className="chip">
+                {getContent('about.sections.skills.chips.scss')}
+              </span>
+              <span className="chip">
+                {getContent('about.sections.skills.chips.aws')}
+              </span>
             </div>
           </div>
 
@@ -363,9 +380,9 @@ export default function About() {
           className="foot"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
         >
-          <p>Built with Next.js, SCSS, and lots of ☕</p>
+          <p>{getContent('global.builtWith')}</p>
           <p style={{ marginTop: '8px', fontSize: '12px', opacity: '0.7' }}>
-            © 2024 Swapnil Katiyar. All rights reserved.
+            {getContent('global.copyright')}
           </p>
         </footer>
       </div>

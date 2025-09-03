@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   z-index: z(overlay);
-  padding: space(4) clamp(16px, 3vw, 32px);
+  padding: space(4) clamp(4px, 2vw, 32px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &--transparent {
@@ -27,13 +27,117 @@
       rgba(255, 255, 255, 0.04),
       rgba(255, 255, 255, 0.24)
     );
-    display: flex;
+    display: grid;
+    grid-template-columns: auto minmax(200px, 400px) auto;
     align-items: center;
-    justify-content: space-between;
+    gap: space(6);
     max-width: 1200px;
     margin: 0 auto;
-    padding: space(4) space(6);
+    padding: space(3) clamp(8px, 2vw, 32px);
     border-radius: radius(lg);
+    min-height: 60px;
+
+    @include down(md) {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 48px;
+    }
+
+    @include down(sm) {
+      padding: space(1) clamp(8px, 2vw, 16px);
+      min-height: 40px;
+      border-radius: radius(md);
+      gap: space(1);
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+
+    @include down(md) {
+      flex-shrink: 0;
+      min-width: 32px;
+    }
+  }
+
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include down(md) {
+      flex: 1;
+      width: auto;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+
+    @include down(md) {
+      flex-shrink: 0;
+      min-width: 32px;
+    }
+  }
+
+  &__desktop {
+    display: flex;
+    align-items: center;
+    gap: space(6);
+
+    @include down(md) {
+      display: none;
+    }
+  }
+
+  &__mobile {
+    display: none;
+    align-items: center;
+    gap: space(3);
+
+    @include down(md) {
+      display: flex;
+    }
+
+    @include down(sm) {
+      gap: space(2);
+    }
+  }
+
+  &__search-btn {
+    @include icon-button(36px);
+    @include glass(
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.35)
+    );
+
+    @include down(sm) {
+      @include icon-button(32px);
+    }
+  }
+
+  &__search-overlay {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: space(4);
+    z-index: 1000;
+
+    @include up(md) {
+      display: none;
+    }
   }
 }
 
@@ -41,12 +145,19 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: space(4);
+  gap: space(3);
   text-decoration: none;
   color: inherit;
-  padding: space(3) space(4);
+  padding: space(2) space(3);
   @include round(sm);
   transition: all 0.2s ease;
+
+  @include down(md) {
+    padding: 0;
+    gap: 0;
+    min-width: 28px;
+    justify-content: center;
+  }
 
   &:hover {
     @include ice;
@@ -56,14 +167,41 @@
   &__icon {
     width: 22px;
     height: 22px;
-    fill: color(text-on-glass);
+    border-radius: radius(circle);
+    object-fit: cover;
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
+
+    @include down(md) {
+      width: 18px;
+      height: 18px;
+    }
+
+    @include down(sm) {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   &__text {
     @include on-glass;
     font-size: 16px;
     font-weight: 700;
+    white-space: nowrap;
+
+    @include down(sm) {
+      font-size: 14px;
+    }
+
+    &--desktop {
+      @include down(md) {
+        display: none;
+      }
+    }
+  }
+
+  @include down(sm) {
+    gap: space(2);
+    padding: space(1) space(2);
   }
 
   &--sm &__icon {
@@ -80,5 +218,218 @@
   }
   &--lg &__text {
     font-size: 18px;
+  }
+}
+
+// ---------- SEARCH BOX ----------
+.search-box {
+  position: relative;
+  width: 100%;
+
+  &--always-visible {
+    width: 100%;
+
+    @include down(md) {
+      flex: 1;
+      width: auto;
+      min-width: 0;
+      max-width: calc(100% - 80px);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + space(2));
+    right: 0;
+    width: 320px;
+    @include glass(
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.28)
+    );
+    border-radius: radius(lg);
+    overflow: hidden;
+    z-index: 1000;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+    @include down(sm) {
+      width: 280px;
+    }
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: space(3) space(4);
+    @include glass(
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.28)
+    );
+    border-radius: radius(lg);
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+    @include down(md) {
+      padding: space(1) space(2);
+    }
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: space(3);
+    flex-shrink: 0;
+
+    @include down(md) {
+      width: 16px;
+      height: 16px;
+      margin-right: space(2);
+    }
+  }
+
+  &__input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: color(text-on-glass);
+    font-size: 14px;
+    font-weight: 500;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 400;
+    }
+
+    @include down(md) {
+      font-size: 13px;
+    }
+  }
+
+  &__close {
+    @include icon-button(24px);
+    margin-left: space(2);
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__results {
+    position: absolute;
+    top: calc(100% + space(2));
+    left: 0;
+    right: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    @include glass(
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.28)
+    );
+    border-radius: radius(lg);
+    z-index: 1000;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  }
+
+  &__result {
+    display: block;
+    padding: space(3) space(4);
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__result-type {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: space(1);
+  }
+
+  &__result-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: color(text-on-glass);
+    margin-bottom: space(1);
+  }
+
+  &__result-description {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4;
+  }
+
+  &__no-results {
+    position: absolute;
+    top: calc(100% + space(2));
+    left: 0;
+    right: 0;
+    padding: space(4);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    @include glass(
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.28)
+    );
+    border-radius: radius(lg);
+    z-index: 1000;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  }
+
+  // Mobile version
+  &--mobile {
+    width: 100%;
+
+    .search-box__input-wrapper {
+      @include glass(
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0.35)
+      );
+      border-radius: radius(lg);
+      margin-bottom: space(4);
+      border-bottom: none;
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    }
+
+    .search-box__results {
+      @include glass(
+        rgba(255, 255, 255, 0.16),
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.28)
+      );
+      border-radius: radius(lg);
+      max-height: 400px;
+      box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    }
   }
 }

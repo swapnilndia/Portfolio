@@ -1,5 +1,22 @@
 import StructuredData from '../../components/SEO/StructuredData.js';
 import { generateAllWorkExperienceSchema } from '../../data/experience.js';
+import { getContent } from '../../data/content.js';
+import { generatePageMetadata } from '../../lib/seo/metadata.js';
+import { getPageSEOConfig } from '../../data/seo-config.js';
+
+// Generate metadata for experience page
+export async function generateMetadata() {
+  const seoConfig = getPageSEOConfig('experience');
+
+  return generatePageMetadata({
+    title: seoConfig.title,
+    description: seoConfig.description,
+    keywords: seoConfig.keywords,
+    path: '/experience',
+    ogImage: seoConfig.ogImage,
+    type: seoConfig.ogType || 'website',
+  });
+}
 
 export default function Experience() {
   const workExperienceSchema = generateAllWorkExperienceSchema();
@@ -11,16 +28,9 @@ export default function Experience() {
         <StructuredData key={index} data={data} />
       ))}
 
-      {/* Animated background blobs */}
-      <div className="blobs blobs--experience">
-        <div className="blob one"></div>
-        <div className="blob two"></div>
-        <div className="blob thr"></div>
-      </div>
-
-      <div className="wrap">
+      <main className="wrap">
         {/* Experience Header */}
-        <section
+        <header
           className="hero"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
         >
@@ -29,34 +39,46 @@ export default function Experience() {
               className="title"
               style={{ fontSize: 'clamp(28px, 5vw, 42px)' }}
             >
-              My Experience
+              {getContent('experience.title')}
             </h1>
-            <p className="subtitle">
-              My professional journey spans across leading technology companies
-              in India, from startups to established enterprises. I&apos;ve
-              built eCommerce platforms, gaming applications, and enterprise
-              solutions while mentoring teams and optimizing performance.
-            </p>
+            <p className="subtitle">{getContent('experience.description')}</p>
 
-            <div
+            <nav
               className="cta-row"
               style={{ marginTop: 'clamp(20px, 3vw, 32px)' }}
+              aria-label="Experience navigation"
             >
-              <button className="btn primary">View Timeline</button>
-              <button className="btn ghost">Download Resume</button>
-            </div>
+              <button className="btn primary" aria-label="View career timeline">
+                {getContent('experience.cta.timeline')}
+              </button>
+              <button className="btn ghost" aria-label="Download resume">
+                {getContent('experience.cta.resume')}
+              </button>
+            </nav>
 
-            <div className="chips">
-              <span className="chip">Software Developer</span>
-              <span className="chip">Frontend Expert</span>
-              <span className="chip">SEO Specialist</span>
-              <span className="chip">Team Mentor</span>
+            <div
+              className="chips"
+              role="list"
+              aria-label="Professional expertise areas"
+            >
+              <span className="chip" role="listitem">
+                {getContent('experience.chips.developer')}
+              </span>
+              <span className="chip" role="listitem">
+                {getContent('experience.chips.frontend')}
+              </span>
+              <span className="chip" role="listitem">
+                {getContent('experience.chips.seo')}
+              </span>
+              <span className="chip" role="listitem">
+                {getContent('experience.chips.mentor')}
+              </span>
             </div>
           </div>
 
-          <div className="stack">
+          <aside className="stack">
             {/* Current Role */}
-            <div className="product">
+            <article className="product">
               <div
                 className="mock-img"
                 style={{
@@ -65,59 +87,77 @@ export default function Experience() {
                   conic-gradient(from 270deg at 50% 50%, #34d399, #60a5fa, #f472b6, #34d399)
                 `,
                 }}
+                role="img"
+                aria-label="Current role at Tekonika Technologies visualization"
               ></div>
               <div className="meta">
-                <h3>Software Developer</h3>
-                <p>
-                  Building and maintaining eCommerce platform frontend with
-                  React, Redux, and SCSS. Achieved 100/100 Lighthouse SEO score
-                  and optimized performance across multiple projects.
-                </p>
+                <h3>{getContent('experience.current.title')}</h3>
+                <p>{getContent('experience.current.description')}</p>
                 <div className="price">
-                  May 2025 - Present • Tekonika Technologies
+                  {getContent('experience.current.period')} •{' '}
+                  {getContent('experience.current.company')}
                 </div>
                 <div className="buy-row">
-                  <button className="btn primary">View Details</button>
-                  <button className="btn ghost">Achievements</button>
+                  <button
+                    className="btn primary"
+                    aria-label="View current role details"
+                  >
+                    View Details
+                  </button>
+                  <button
+                    className="btn ghost"
+                    aria-label="View current role achievements"
+                  >
+                    Achievements
+                  </button>
                 </div>
               </div>
-            </div>
+            </article>
 
             {/* Work Status */}
-            <div className="player">
+            <aside className="player">
               <div
                 className="cover"
                 style={{
                   background: 'linear-gradient(135deg, #60a5fa, #2563eb)',
                 }}
+                role="img"
+                aria-label="Current work status indicator"
               ></div>
               <div className="track">
                 <div className="name">Current Role</div>
-                <div className="artist">Pune, Maharashtra</div>
+                <div className="artist">
+                  {getContent('experience.current.location')}
+                </div>
               </div>
-              <button className="play">
+              <button
+                className="play"
+                aria-label="View current role information"
+              >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
+                  aria-hidden="true"
                 >
                   <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
                   <line x1="8" y1="21" x2="16" y2="21" />
                   <line x1="12" y1="17" x2="12" y2="21" />
                 </svg>
               </button>
-            </div>
-          </div>
-        </section>
+            </aside>
+          </aside>
+        </header>
 
         {/* Previous Role - Reverse Layout */}
         <section
           className="hero hero--reverse"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
+          aria-labelledby="wagergeeks-heading"
         >
-          <div className="stack">
-            <div className="product">
+          <aside className="stack">
+            <article className="product">
               <div
                 className="mock-img"
                 style={{
@@ -126,6 +166,8 @@ export default function Experience() {
                   conic-gradient(from 180deg at 60% 20%, #f472b6, #34d399, #60a5fa, #f472b6)
                 `,
                 }}
+                role="img"
+                aria-label="WagerGeeks gaming platform project visualization"
               ></div>
               <div className="meta">
                 <h3>Frontend Developer</h3>
@@ -138,38 +180,55 @@ export default function Experience() {
                   React • Next.js • Tailwind • HTML/CSS
                 </div>
                 <div className="buy-row">
-                  <button className="btn primary">View Projects</button>
-                  <button className="btn ghost">Technologies</button>
+                  <button
+                    className="btn primary"
+                    aria-label="View WagerGeeks projects"
+                  >
+                    View Projects
+                  </button>
+                  <button
+                    className="btn ghost"
+                    aria-label="View technologies used at WagerGeeks"
+                  >
+                    Technologies
+                  </button>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <div className="player">
+            <aside className="player">
               <div
                 className="cover"
                 style={{
                   background: 'linear-gradient(135deg, #34d399, #059669)',
                 }}
+                role="img"
+                aria-label="WagerGeeks location indicator"
               ></div>
               <div className="track">
                 <div className="name">Location</div>
                 <div className="artist">Indore, Madhya Pradesh</div>
               </div>
-              <button className="play">
+              <button
+                className="play"
+                aria-label="View WagerGeeks location details"
+              >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
+                  aria-hidden="true"
                 >
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                 </svg>
               </button>
-            </div>
-          </div>
+            </aside>
+          </aside>
 
           <div>
             <h2
+              id="wagergeeks-heading"
               className="title"
               style={{ fontSize: 'clamp(24px, 4vw, 36px)' }}
             >
@@ -181,11 +240,23 @@ export default function Experience() {
               Next.js and Tailwind CSS with modern design principles.
             </p>
 
-            <div className="chips">
-              <span className="chip">Feb 2025 - May 2025</span>
-              <span className="chip">Frontend Developer</span>
-              <span className="chip">Gaming Platform</span>
-              <span className="chip">Admin Portal</span>
+            <div
+              className="chips"
+              role="list"
+              aria-label="WagerGeeks role details"
+            >
+              <span className="chip" role="listitem">
+                Feb 2025 - May 2025
+              </span>
+              <span className="chip" role="listitem">
+                Frontend Developer
+              </span>
+              <span className="chip" role="listitem">
+                Gaming Platform
+              </span>
+              <span className="chip" role="listitem">
+                Admin Portal
+              </span>
             </div>
           </div>
         </section>
@@ -435,55 +506,63 @@ export default function Experience() {
         <section
           className="icon-row"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
+          aria-labelledby="core-skills-heading"
         >
-          <div className="icon-card">
+          <h2 id="core-skills-heading" className="sr-only">
+            Core Professional Skills
+          </h2>
+          <article className="icon-card">
             <svg
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
+              aria-hidden="true"
             >
               <circle cx="12" cy="12" r="3" />
               <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" />
             </svg>
-            <span>Leadership</span>
-          </div>
-          <div className="icon-card">
+            <span>{getContent('experience.skillsGrid.leadership')}</span>
+          </article>
+          <article className="icon-card">
             <svg
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
+              aria-hidden="true"
             >
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
               <circle cx="9" cy="7" r="4" />
               <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
               <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
-            <span>Mentoring</span>
-          </div>
-          <div className="icon-card">
+            <span>{getContent('experience.skillsGrid.mentoring')}</span>
+          </article>
+          <article className="icon-card">
             <svg
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
+              aria-hidden="true"
             >
               <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
-            <span>Architecture</span>
-          </div>
-          <div className="icon-card">
+            <span>{getContent('experience.skillsGrid.architecture')}</span>
+          </article>
+          <article className="icon-card">
             <svg
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
+              aria-hidden="true"
             >
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
             </svg>
-            <span>Innovation</span>
-          </div>
+            <span>{getContent('experience.skillsGrid.innovation')}</span>
+          </article>
         </section>
 
         {/* Footer */}
@@ -491,12 +570,12 @@ export default function Experience() {
           className="foot"
           style={{ marginTop: 'clamp(48px, 6vw, 80px)' }}
         >
-          <p>Built with Next.js, SCSS, and lots of ☕</p>
+          <p>{getContent('global.builtWith')}</p>
           <p style={{ marginTop: '8px', fontSize: '12px', opacity: '0.7' }}>
-            © 2024 Swapnil Katiyar. All rights reserved.
+            {getContent('global.copyright')}
           </p>
         </footer>
-      </div>
+      </main>
     </>
   );
 }

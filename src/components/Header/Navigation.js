@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from './Logo';
 import NavLink from './NavLink';
 
 const Navigation = ({ items = [], activeSection = '', onItemClick }) => {
@@ -15,8 +14,6 @@ const Navigation = ({ items = [], activeSection = '', onItemClick }) => {
 
   return (
     <nav className="navigation">
-      <Logo />
-      <div className="navigation__spacer" />
       <ul className="navigation__list">
         {navigationItems.map((item) => (
           <li key={item.id}>
